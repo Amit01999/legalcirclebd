@@ -1,4 +1,4 @@
-import abrarHasnineImage from "@/assets/peoples/Abrar-Hasnain--scaled.jpg";
+﻿import abrarHasnineImage from "@/assets/peoples/Abrar-Hasnain--scaled.jpg";
 import anitaGhaziRahmanImage from "@/assets/peoples/Anita-Ghazi-Rahman--scaled.jpg";
 import eshrakEMoazzamImage from "@/assets/peoples/Eshrak-E-Moazzam.jpg";
 import gaziMdRokibBinHossainImage from "@/assets/peoples/Gazi-Md.-Rokib-Bin-Hossain-scaled.jpg";
@@ -27,7 +27,36 @@ export type PeopleTab = (typeof peopleTabs)[number];
 export type ProfileSection = {
   title: string;
   items: string[];
+  nonCollapsible?: boolean;
 };
+
+/**
+ * A single inline run within a bio paragraph.
+ * Plain string = unstyled text.
+ * Object = styled text — any combination of highlight / color / href / bold.
+ *
+ * Usage in data:
+ *   { text: "Lincoln's Inn", highlight: true }
+ *   { text: "University College London", href: "https://ucl.ac.uk" }
+ *   { text: "Senior Advocate", color: "brand" }
+ *   { text: "The Legal Circle", href: "/", bold: true, color: "brand" }
+ */
+export type TextRun =
+  | string
+  | {
+      text: string;
+      /** Yellow highlight background */
+      highlight?: boolean;
+      /** Named color: "brand" (green) | "red" | "blue" | any Tailwind text-color class */
+      color?: string;
+      /** Makes the run a hyperlink */
+      href?: string;
+      /** Bold weight */
+      bold?: boolean;
+    };
+
+/** A bio paragraph: either a plain string or an array of inline runs */
+export type BioParagraph = string | TextRun[];
 
 export type Person = {
   name: string;
@@ -38,8 +67,11 @@ export type Person = {
   qualifications?: string[];
   positions?: string[];
   phone?: string;
+  telephone?: string;
   email?: string;
-  bio?: string[];
+  whatsapp?: string;
+  linkedin?: string;
+  bio?: BioParagraph[];
   sections?: ProfileSection[];
 };
 
@@ -58,136 +90,80 @@ const anitaGhaziRahman: Person = {
   initials: "AR",
   image: anitaGhaziRahmanImage,
   qualifications: [
+    "Senior Advocate, Supreme Court of Bangladesh.",
     "LL.B. (Hons), University College London (UCL)",
     "Barrister-at-Law, of Lincoln's Inn",
-    "Senior Advocate, Supreme Court of Bangladesh",
   ],
   positions: [
-    "Independent Director, Chittagong Stock Exchange",
+    "Independent Director, BRAC Bank PLC.",
+    "Nominated Director, bKash Limited.",
+    "Nominated Director, BRAC IT Services Limited.",
     "Member, National Advisory Board for Impact Investment in Bangladesh",
     "Independent Director, LightCastle Partners",
   ],
   phone: "+8801713036917",
+  telephone: "+880258814311",
   email: "anita@legalcirclebd.com",
+  linkedin: "https://www.linkedin.com/in/anita-ghazi/",
+  whatsapp: "+8801713036917",
   bio: [
-    "Anita Ghazi Rahman defines law as her calling. She obtained her LL.B. (Hons) degree from University College London (UCL) in 2002 and was called to the Bar of England and Wales from Lincoln's Inn in July 2003, completing her Bar Vocational Course with Merit from The College of Law. Anita qualified as an Advocate in Bangladesh in 2004, as Advocate of the High Court Division of Bangladesh Supreme Court in 2006 and as Advocate of the apex Court, the Appellate Division of the Bangladesh Supreme Court in 2018. In February 2025 she has been enrolled as a Senior Advocate of Supreme Court of Bangladesh.",
-    "Anita focuses her practice on company, general corporate law and dispute resolution. She provides corporate and transactional advice with respect to business formation, employment, financing, IP, services and procurement contracts, joint ventures, mergers & acquisitions and other business restructurings and also advises on the acquisition, development, and disposition of commercial, industrial and residential real estate. Anita heads the firm's Litigation practice.",
-    "Anita has been listed amongst the Inspiring individuals to follow in 2015 in Bangladesh in Dhaka Tribune, Future Startup's 15 Under 35 For 2015: Entrepreneurs, Trailblazers, Mold-Breakers Of Bangladesh and has been featured in the books From Stones to Castles: In conversation with 16 inspiring personalities of Bangladesh and Aine Tarunno. She is a Asia 21 Young Leader for the Class of 2016 and one of the initial signatories to the Belt & Road Legal Service International Cooperation Platform.",
-    "Anita is the Founder of The Legal Circle and Founder of Think Legal Bangladesh, the first of its kind, free open and crowd-sourced web-based legal resources platform, as well as the Founder and Publisher of Legal Circle Law Reports (LCLR).",
-    "Anita Ghazi Rahman serves on the Boards of a number of non-profits and professional associations, and mentors for national and international incubator and accelerator programmes. Anita is an active mentor in the startup ecosystem since its nascent stages and frequently mentors for BetterStories, Founders' Institute, GP Accelerator, LightCastle Center for Advanced Learning, Seedstars, Startup Dhaka, YGAP and BYLC Ventures, among others. She is a sponsor-member of Bangladesh Angels Network (BAN).",
-    "Anita is an Independent Director of Chittagong Stock Exchange, previously having served as Independent Director of Golden Harvest Agro Industries Limited, and is a Member of the National Advisory Board for Impact Investment in Bangladesh. She is a member of the Investment Committee in Startup Bangladesh Ltd, the flagship venture capital fund of the ICT Ministry of Bangladesh.",
-    "She serves on the Board of iSocial, a social impact company empowering communities through women entrepreneurship and on the board of Jaago Foundation.",
-    "The Legal Circle is committed to giving back and Anita Ghazi has an established reputation for her pro bono work, spending a substantial amount of time on helping initiatives she finds are capable of making a difference for a better Bangladesh. She regularly advises home grown not-for-profits and also foreign NGOs, non-profits and donor agencies, the latter through iProbono and Thomson Reuters Foundation.",
+    [
+      { text: "Anita Ghazi Rahman", bold: true },
+      " is a Senior Advocate of the Supreme Court of Bangladesh and the Founder and Managing Partner of The Legal Circle.",
+    ],
+    "With over two decades of experience, she is widely recognised as one of Bangladesh’s leading corporate, finance and disputes lawyers. Her practice encompasses complex corporate and commercial transactions, investments, mergers and acquisitions, banking and finance, regulatory advisory, and high-value litigation and dispute resolution. She regularly advises multinational corporations, financial institutions, development organisations, investors, boards of directors and leading domestic business groups on strategic legal, governance and regulatory matters.",
+    "Called to the Bar of England and Wales from Lincoln’s Inn in 2003, Anita was enrolled as an Advocate of the High Court Division of the Supreme Court of Bangladesh in 2006 and became a Senior Advocate of the Supreme Court of Bangladesh in 2025.",
+    "Her professional standing has been recognised consistently by leading international legal directories. She is ranked in Chambers Asia-Pacific for Corporate & Finance and Dispute Resolution, appears in Chambers Global, IFLR1000 (Highly Regarded), The Legal 500 and Asialaw, and was named to the Asia Business Law Journal’s A-List of Bangladesh’s Top 50 Lawyers in 2025.",
+    "Anita serves as an Independent Director of BRAC Bank PLC and as a Nominated Director on the boards of bKash Limited and BRAC IT Services Limited. She is a Member of the National Advisory Board for Impact Investment in Bangladesh. Her boardroom experience and governance expertise make her a trusted adviser to companies navigating regulatory, compliance and strategic challenges in highly regulated sectors.",
+    "Beyond her commercial practice, Anita is a committed advocate for access to justice and legal reform. She is the Founder of Think Legal Bangladesh and the Publisher of the Legal Circle Law Reports (LCLR). Through her pro bono work, she has advised local and international non-profit organisations, social enterprises and public-interest initiatives on governance, regulatory and institutional matters, contributing to legal capacity-building and social impact programmes in Bangladesh and internationally.",
   ],
   sections: [
     {
-      title: "Business Formation, Company & Securities",
+      title: "Corporate Transactions & Capital Markets",
+      nonCollapsible: true,
       items: [
-        "Anita's areas of practice include all aspects of company law including advisory, structuring, formation & registration, litigation, mergers & acquisitions and shareholder disputes.",
-        "Regularly advises on entity registration options and formation/registration of foreign, joint venture and local businesses and representative offices at the RJSC, Board of Investment and EPZs.",
-        "Has assisted in the registration of businesses in automobile, consultancy, clothing, distribution, ITES, investment, food and beverage, logistics, retail, RMG, telecommunication, trading, transport, travel and real estate sectors in Bangladesh.",
-        "Preferred go-to lawyer for Rocket Internet ventures in Bangladesh for company incorporation and intricate company restructuring advice.",
-        "Represented an international public company in a three-year start-to-finish development of a Greenfield Project in Bangladesh.",
-        "Structuring and incorporation of Bangladesh-Japan JV with Japanese logistics giant.",
-        "Enlistment of private companies with the Bangladesh Securities and Exchange Commission (BSEC).",
-        "Filing and representation in company matters at the High Court including minority protection, rectification of share register and amalgamation matters.",
-        "Striking off of a subsidiary of an Indian listed IT education and training company.",
-        "Winding up, including initiation of creditors' winding up process.",
+        "Anita advises on the full spectrum of corporate transactions, including mergers and acquisitions, joint ventures, inbound and outbound investments, cross-border restructurings, franchise and distribution arrangements, and commercial contracting. She acts for multinational corporations, listed companies, private equity and venture capital investors and development-stage businesses across a broad range of sectors including telecommunications, financial services, technology, RMG, logistics, food and beverage and energy. As Managing Partner of The Legal Circle, Bangladesh's Lex Mundi member firm, she coordinates cross-border matters with Lex Mundi member firms in over 100 jurisdictions worldwide.",
       ],
     },
     {
-      title: "Distributorship & Agency",
+      title: "Banking, Finance & Debt Capital Markets",
+      nonCollapsible: true,
       items: [
-        "Drafting of exclusive and non-exclusive distributorship and agency agreements and review of such agreements.",
-        "Successfully advised on termination of distributorships of medical equipment and packaged food distribution contracts, representing foreign principals in both transactions.",
-        "Setting in place supply-chain contracts for food distribution within Bangladesh.",
-        "Advising on claim of compensation for loss incurred by principal.",
+        "Anita advises borrowers, lenders and issuers on a range of financing transactions, including term loans, project finance, loan syndication, standby letters of credit, subordinated debt and debt capital markets issuances. Her recent experience includes advising on social bond frameworks and Tier-II subordinated bond issuances for regulated financial institutions. She advises on Bangladesh Bank regulatory requirements applicable to banks and NBFIs and on the structuring of cross-border financing transactions, including foreign currency borrowings and regulatory approvals.",
       ],
     },
     {
-      title: "Employment",
+      title: "Corporate Governance & Regulatory Advisory",
+      nonCollapsible: true,
       items: [
-        "Advised the world's leading content marketing platform, a US based company, in implementing the company's incentive stock option scheme in Bangladesh.",
-        "Negotiated a win-win Employee Severance Settlement for employees in a multinational brownfield services company.",
-        "Advised a leading international retailer on negotiation and settlement of a complex disciplinary action, drafting of settlement agreement and NDAs.",
-        "Advise both employers and employees in wrongful termination claims and disciplinary matters.",
-        "Advisory, drafting/review and registering Gratuity and Provident Funds in light of local labour and tax laws.",
-        "Review of HR, confidentiality and non-disclosure policies.",
-        "Appearance before the BEPZA on employment complaint.",
+        "Anita advises boards of directors, independent directors and companies on governance matters, including board structures, directors' duties and liabilities, code of conduct requirements, and regulatory compliance with BSEC and Bangladesh Bank guidelines. She has been engaged as a resource person by the Supreme Court of Bangladesh and UNDP in the development of the Draft Commercial Court Ordinance 2025 and has acted as an expert consultant on proposed amendments to the Companies Act, 1994, the Startup Policy and related legislation. She is a recognised authority on independent and nominee director liability and the governance of listed and regulated entities in Bangladesh.",
       ],
     },
     {
-      title: "Energy, Power, Oil & Gas",
+      title: "Employment & Labour",
+      nonCollapsible: true,
       items: [
-        "Presently assisting and advising on negotiations and documentation in relation to implementation of a 750MW dual fuel Combined Cycle Power plant in Meghnaghat, Narayanganj.",
-        "Counsel to Orion Group, a leading industrial conglomerate in Bangladesh building one of the first super-critical coal fired power plants in the country.",
-        "Engineering, Procurement and Supervision Contract in the construction of a 30,000 MTPA Capacity LPG Terminal/Filling Plant at Mongla Port Industrial Area.",
-        "Advised in the development of a 50 MW Waste to Electricity Generation Plant and ancillary waste treatment plants on BOO/BOOT basis under Ministry of LGRD & Co-operatives.",
-        "Was seconded to Shell and Cairn Energy during the Transfer of Operatorship from Shell to Cairn Energy from 2003-2004.",
+        "Anita advises employers and employees on the full range of contentious and non-contentious employment matters, including executive severance, disciplinary proceedings, wrongful termination, incentive and equity compensation schemes, employee benefit structuring, and compliance with Bangladesh Labour Law and BEPZA regulations. She has advised leading domestic and international clients on workforce restructuring, HR policy development and cross-border employment issues, and has appeared before employment tribunals and regulatory bodies.",
       ],
     },
     {
-      title: "Financing",
+      title: "Litigation & Dispute Resolution",
+      nonCollapsible: true,
       items: [
-        "Advised on term loan financing to the tune of US$88 million from foreign sources for Orion Group.",
-        "Advised Borrower, Golden Harvest Ice Cream Ltd. in Loan Syndication for establishing a premium ice cream plant in Bangladesh. Deal Value BDT 700 million.",
-        "Financing of four biogas plants to generate a total of 400 kilowatts of electricity using slurry produced as a byproduct from biogas digesters.",
-      ],
-    },
-    {
-      title: "Franchise",
-      items: [
-        "Advised in the licensing of multiple F&B franchises including Fish & Co., Krispy Kreme & The Cream & Fudge Factory.",
-        "Assisted numerous franchise businesses with expanding their operations on regional, national and international level.",
-        "Assist entrepreneurs in all phases of starting, growing and operating small businesses and related investment opportunities.",
-        "Advisory on sub-franchising.",
-        "Represented sellers of food & beverage target in sale of shares and transfer of franchise.",
-      ],
-    },
-    {
-      title: "Litigation",
-      items: [
-        "Represented Energypac Bangladesh in income tax litigation at the High Court of Bangladesh and successfully obtained interim relief against realization of assessed tax.",
-        "Filed Judicial Review/Writ Petitions in the High Court against Local Authority over advertising standard and licensing.",
-        "Co-counsel in Public Interest Litigation on emergency medical treatment to victims of traffic accidents and good Samaritan awareness.",
-        "Successfully represented tenderer in challenging the non-issuance of Notification of Award in relation to a weigh scale and electronic ticketing tender for Bangabandhu Bridge.",
-        "Successfully represented tenderer in challenging the decision of a Review Panel for procurement of single phase electronic meters from the Rural Electrification Board.",
-        "Successfully disposed of judicial review/writ petition relating to customs claim and penalty matter in the High Court Division and Appellate Division.",
-        "Assisting in representing the securities regulator in litigation at the High Court.",
-        "Successfully represented respondent in landmark telecommunication dispute at the Supreme Court representing foreign investors in a WIMAX/ISP licensing dispute.",
-        "Successfully rectified share register of a public listed company establishing claim of foreign beneficial owners of shares.",
-      ],
-    },
-    {
-      title: "Mergers & Acquisitions (M&A)",
-      items: [
-        "Advised Ceylon Biscuit, a Sri Lankan fortune 100 company, in establishing a greenfield project in Bangladesh. Deal value approximately US$15 million.",
-        "Represented the CIEL Group in its acquisition of two garments manufacturers.",
-        "Advised in Bangladesh restructuring and implementation of German start-up dynamo Rocket Internet's investment for Daraz.",
-        "Represented SQ Group in negotiations with a foreign private equity investor for sale of an equity interest.",
-        "Advised leading US based industrial and consumer sewing thread manufacturing company on expansion and lease of industrial premises and utilities.",
-        "Advised Japanese conglomerate on establishment of ceramics greenfield project in Bangladesh.",
-        "Represented a purchaser in the acquisition of an entity that owns a telecommunications IGW License/business. Deal value over US$7 million.",
-        "Advised BD Venture Limited in its investment in Edtech startup Eshosikhi.com.",
-      ],
-    },
-    {
-      title: "Real Estate",
-      items: [
-        "Due diligence and acquisition of 30+ acres of land for industrial park.",
-        "Vetting land documents and giving legal opinion on 93 decimals of land to build a readymade garment factory at Tongi, Dhaka.",
-        "Vetting land documents and giving legal opinion on 8 acres of land to build a knit composite at Savar, Dhaka.",
-      ],
-    },
-    {
-      title: "Services and Procurement Contracts",
-      items: [
-        "Representation in detailed and lengthy negotiations for Call Centre Outsourcing Agreements with leading telecommunications providers.",
+        "Anita heads The Legal Circle's Litigation and Dispute Resolution practice, appearing before the High Court Division and Appellate Division of the Supreme Court of Bangladesh. Her practice encompasses commercial litigation, judicial review, public interest litigation, tax and customs disputes, company disputes, securities regulation and telecommunications matters. She has appeared in landmark cases before the Supreme Court and has acted as lead and co-counsel in public interest litigation that has shaped administrative law, regulatory practice and access to justice in Bangladesh.",
       ],
     },
     {
       title: "Speaking Engagements",
       items: [
+        "Panel Speaker, \"Building Ethical Foundations for Organizational Success\", Integrity Day 2024, 5 June 2024. Organised by the UN Global Compact Network Bangladesh.",
+        "Panelist, \"Role of Pro Bono in Last Mile Fair Labour Practices\", 21 May 2024. Organised by Advocates for International Development (A4ID), United Kingdom.",
+        "Speaker, Roundtable on \"Investing With A Purpose: Navigating Bangladesh's Impact Ecosystem\", 1 May 2024. Organised by Biniyog Briddhi, supported by the Embassy of Switzerland.",
+        "Panel Speaker, HSBC Celebration of International Women's Day, 10 March 2024.",
+        "Panelist, \"Ring The Bell for Gender Equality\", 10 March 2024, Dhaka Stock Exchange. Organised in partnership with IFC, UN Global Compact, UN Women and the World Federation of Exchanges.",
+        "Roundtable Discussant, \"SheSTEM: Career Knows No Gender\". Organised by the Kingdom of the Netherlands in conjunction with a2i and LightCastle Partners.",
+        "Panel Discussant, \"Navigating the Challenges of Growth & Capital Needs\", 19 February 2024, SouthAsia Tech Founders.",
+        "Webinar Speaker, \"The Why Behind the Gender Disparity in the Bangladeshi Startup Ecosystem\", 15 January 2024. Organised by NSU Startups Next.",
         "Mentor & Director, Founder Institute, Bangladesh Chapter.",
         "Mentor, Grameen Phone Accelerator, 3rd batch, Startup Legal, 23 March 2017.",
         "Speaker, School of Entrepreneurship Lecture Series, Intellectual Property, 4 February 2017.",
@@ -206,26 +182,43 @@ const anitaGhaziRahman: Person = {
     {
       title: "Publications",
       items: [
-        "Publisher & Co-Editor of LCLR (Legal Circle Law Reports), a quarterly law report.",
-        "Editor of Think Legal Bangladesh - thinklegalbangladesh.com.",
-        "Framing a social enterprise law, published in The Daily Star on 13 June 2017.",
-        "Lead Author of Bangladesh Section of The Employment Law Review, 8th Edition.",
-        "Co-Author of Bangladesh Section of The International Comparative Guide to: Project Finance 2016 & 2017.",
-        "Co-Author of Bangladesh Section of Laws on Telecom and Media 2013.",
-        "Cross Border Merger and Acquisitions - the new frontier, written with Mr. Masud Khan, published in The Financial Express on 26 May 2010.",
-        "An easy conversion, published in The Daily Star on 25 May 2010.",
-        "Employee Stock Option (ESO) - a beneficial plan for both the company and the employees, published on December 22, 2021 in the Financial Express.",
-        "Investing workers' funds differently: securities seen best choice, published on November 24, 2021 in the Financial Express.",
-        "Understanding Preference Shares in Practice, published on December 5, 2020 in the Financial Express.",
-        "Data, digitalisation and public welfare post-covid-19, published on December 1, 2020 in the Whiteboard Magazine.",
-        "Easing repatriation of proceeds from share sale, published on July 15, 2020 in the Financial Express.",
-        "Returning to work during Covid-19, published on June 1, 2020 in the Financial Express.",
-        "Covid-19 Government Support Measures, published on May 30, 2020 in the Lex Mundi Website.",
-        "Workforce reduction during Covid-19: Information for employers, published on March 30, 2020 in the Financial Express.",
-        "Data, Privacy and e-commerce, published on December 11, 2018 in the Financial Express.",
-        "MR A J O AND MRS T L V. The Slovak Republic, UNCITRAL Award, published on September 5, 2012 by School of International Arbitration, Queen Mary, University of London.",
-        "THE TEMPLE OF PREAH VIHEAR - CAMBODIA v. THAILAND - (Decision on the Request of Provisional Measures), published in 2012 by School of International Arbitration, Queen Mary, University of London.",
-        "A review of laws and policies to prevent and remedy violence against children in police and pre-trial detention in Bangladesh, published in 2013 in www.penalreform.org.",
+        "\"Directors in share market\" — The Financial Express, 14 February 2026.",
+        "\"Independent directors: The role and its evolution\" — The Financial Express, December 2024.",
+        "\"Will this remain a nation for men?\" — The Financial Express, September 2024.",
+        "\"Bringing more women in boardrooms can be game-changer in BD corporate arena\" — The Financial Express, December 2023.",
+        "\"Are married women barred from being trustees in Bangladesh?\" — The Legal Circle, July 2023.",
+        "\"SAFE investments in Bangladesh\" — The Financial Express, December 2022.",
+        "Contribution to Global M&A Trends Report 2022.",
+        "Bangladesh contributor, \"Legal reform as a catalyst for social enterprise: an international social enterprise law & policy report\" — Catalyst 2030, January 2022.",
+        "Contributor (researcher and legal expert), Fairwork Bangladesh Ratings 2021: Labour Standards in the Gig Economy.",
+        "Publisher & Co-Editor, Legal Circle Law Reports (LCLR), quarterly law report (ongoing).",
+        "Editor, Think Legal Bangladesh — thinklegalbangladesh.com (ongoing).",
+        "\"Employee Stock Option (ESO) — a beneficial plan for both the company and the employees\" — The Financial Express, 22 December 2021.",
+        "\"Investing workers' funds differently: securities seen best choice\" — The Financial Express, 24 November 2021.",
+        "\"Understanding Preference Shares in Practice\" — The Financial Express, 5 December 2020.",
+        "\"Data, digitalisation and public welfare post-covid-19\" — Whiteboard Magazine, 1 December 2020.",
+        "\"Easing repatriation of proceeds from share sale\" — The Financial Express, 15 July 2020.",
+        "\"Returning to work during Covid-19\" — The Financial Express, 1 June 2020.",
+        "\"Covid-19 Government Support Measures\" — Lex Mundi, 30 May 2020.",
+        "\"Workforce reduction during Covid-19: Information for employers\" — The Financial Express, 30 March 2020 (with Jarif Ahmed and Nauriin Ahmed).",
+        "\"Data, Privacy and e-commerce\" — The Financial Express, 11 December 2018 (with Pushpo Rahman).",
+        "\"Framing a social enterprise law\" — The Daily Star, 13 June 2017.",
+        "Lead Author, Bangladesh Section of The Employment Law Review, 8th Edition — Law Reviews, 2017.",
+        "Co-Author, Bangladesh Section of The International Comparative Guide to: Project Finance 2016 & 2017 — Global Legal Group (with Karishma Jahan).",
+        "Co-Author, Bangladesh Section of Laws on Telecom and Media 2013, Getting the Deal Through (with Mohibul H. Chowdhoury and Daniah Khandker).",
+        "Contributor, A review of laws and policies to prevent and remedy violence against children in police and pre-trial detention in Bangladesh — Penal Reform International, 2013.",
+        "\"Cross Border Merger and Acquisitions — the new frontier\" — The Financial Express, 26 May 2010 (with Masud Khan).",
+        "\"An easy conversion\" — The Daily Star, 25 May 2010.",
+      ],
+    },
+    {
+      title: "Recognitions",
+      items: [
+        "Ranked in Chambers Asia-Pacific 2026 in Corporate & Finance and Dispute Resolution.",
+        "Ranked in Chambers Global in Corporate & Finance.",
+        "IFLR1000 — Highly Regarded, Financial and Corporate, Bangladesh.",
+        "Asia Business Law Journal A-List: Bangladesh's Top 50 Lawyers, 2025.",
+        "Part of the editorial team for: (i) The Law of Civil Procedure, 2nd Ed., by Mahmudul Islam and Probir Neogi; (ii) Law of Estoppel, by Mahmudul Islam; (iii) Unwritten Constitution of Bangladesh and A Tale of Two Supreme Courts, by Justice M. A. Matin; (iv) The Companies Act, 1994 of Bangladesh through Reported Case-laws, by Justice Muhammad Khurshid Alam Sarkar.",
       ],
     },
   ],
@@ -864,13 +857,7 @@ const mahmudulHasanRabiul: Person = {
 };
 
 export const people: Record<PeopleTab, Person[]> = {
-  Partners: [
-    anitaGhaziRahman,
-    gaziMdRokibBinHossain,
-    sameeraMahmud,
-    pushpoRahman,
-    nauriinAhmed,
-  ],
+  Partners: [anitaGhaziRahman, gaziMdRokibBinHossain, sameeraMahmud, pushpoRahman, nauriinAhmed],
   "Of Counsel": [jarifAhmedRumman, masudKhan],
   "Senior Associates": [abrarHasnineRifat, taahsinaRaisaRabbi, nafiulAlamShupto],
   Associates: [umerAimanKhan, eshrakEMoazzam],

@@ -16,10 +16,12 @@ import { Route as MediaCoverageRouteImport } from './routes/media-coverage'
 import { Route as LoginRouteImport } from './routes/login'
 import { Route as LexMundiRouteImport } from './routes/lex-mundi'
 import { Route as InsightsRouteImport } from './routes/insights'
+import { Route as ClientDashboardRouteImport } from './routes/client-dashboard'
 import { Route as CareerRouteImport } from './routes/career'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as OurPeopleSlugRouteImport } from './routes/our-people.$slug'
+import { Route as InsightsSlugRouteImport } from './routes/insights.$slug'
 
 const RecognitionsRoute = RecognitionsRouteImport.update({
   id: '/recognitions',
@@ -56,6 +58,11 @@ const InsightsRoute = InsightsRouteImport.update({
   path: '/insights',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ClientDashboardRoute = ClientDashboardRouteImport.update({
+  id: '/client-dashboard',
+  path: '/client-dashboard',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const CareerRoute = CareerRouteImport.update({
   id: '/career',
   path: '/career',
@@ -76,31 +83,40 @@ const OurPeopleSlugRoute = OurPeopleSlugRouteImport.update({
   path: '/$slug',
   getParentRoute: () => OurPeopleRoute,
 } as any)
+const InsightsSlugRoute = InsightsSlugRouteImport.update({
+  id: '/$slug',
+  path: '/$slug',
+  getParentRoute: () => InsightsRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/career': typeof CareerRoute
-  '/insights': typeof InsightsRoute
+  '/client-dashboard': typeof ClientDashboardRoute
+  '/insights': typeof InsightsRouteWithChildren
   '/lex-mundi': typeof LexMundiRoute
   '/login': typeof LoginRoute
   '/media-coverage': typeof MediaCoverageRoute
   '/our-people': typeof OurPeopleRouteWithChildren
   '/practice-areas': typeof PracticeAreasRoute
   '/recognitions': typeof RecognitionsRoute
+  '/insights/$slug': typeof InsightsSlugRoute
   '/our-people/$slug': typeof OurPeopleSlugRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/career': typeof CareerRoute
-  '/insights': typeof InsightsRoute
+  '/client-dashboard': typeof ClientDashboardRoute
+  '/insights': typeof InsightsRouteWithChildren
   '/lex-mundi': typeof LexMundiRoute
   '/login': typeof LoginRoute
   '/media-coverage': typeof MediaCoverageRoute
   '/our-people': typeof OurPeopleRouteWithChildren
   '/practice-areas': typeof PracticeAreasRoute
   '/recognitions': typeof RecognitionsRoute
+  '/insights/$slug': typeof InsightsSlugRoute
   '/our-people/$slug': typeof OurPeopleSlugRoute
 }
 export interface FileRoutesById {
@@ -108,13 +124,15 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/career': typeof CareerRoute
-  '/insights': typeof InsightsRoute
+  '/client-dashboard': typeof ClientDashboardRoute
+  '/insights': typeof InsightsRouteWithChildren
   '/lex-mundi': typeof LexMundiRoute
   '/login': typeof LoginRoute
   '/media-coverage': typeof MediaCoverageRoute
   '/our-people': typeof OurPeopleRouteWithChildren
   '/practice-areas': typeof PracticeAreasRoute
   '/recognitions': typeof RecognitionsRoute
+  '/insights/$slug': typeof InsightsSlugRoute
   '/our-people/$slug': typeof OurPeopleSlugRoute
 }
 export interface FileRouteTypes {
@@ -123,6 +141,7 @@ export interface FileRouteTypes {
     | '/'
     | '/about'
     | '/career'
+    | '/client-dashboard'
     | '/insights'
     | '/lex-mundi'
     | '/login'
@@ -130,12 +149,14 @@ export interface FileRouteTypes {
     | '/our-people'
     | '/practice-areas'
     | '/recognitions'
+    | '/insights/$slug'
     | '/our-people/$slug'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
     | '/about'
     | '/career'
+    | '/client-dashboard'
     | '/insights'
     | '/lex-mundi'
     | '/login'
@@ -143,12 +164,14 @@ export interface FileRouteTypes {
     | '/our-people'
     | '/practice-areas'
     | '/recognitions'
+    | '/insights/$slug'
     | '/our-people/$slug'
   id:
     | '__root__'
     | '/'
     | '/about'
     | '/career'
+    | '/client-dashboard'
     | '/insights'
     | '/lex-mundi'
     | '/login'
@@ -156,6 +179,7 @@ export interface FileRouteTypes {
     | '/our-people'
     | '/practice-areas'
     | '/recognitions'
+    | '/insights/$slug'
     | '/our-people/$slug'
   fileRoutesById: FileRoutesById
 }
@@ -163,7 +187,8 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutRoute: typeof AboutRoute
   CareerRoute: typeof CareerRoute
-  InsightsRoute: typeof InsightsRoute
+  ClientDashboardRoute: typeof ClientDashboardRoute
+  InsightsRoute: typeof InsightsRouteWithChildren
   LexMundiRoute: typeof LexMundiRoute
   LoginRoute: typeof LoginRoute
   MediaCoverageRoute: typeof MediaCoverageRoute
@@ -223,6 +248,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof InsightsRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/client-dashboard': {
+      id: '/client-dashboard'
+      path: '/client-dashboard'
+      fullPath: '/client-dashboard'
+      preLoaderRoute: typeof ClientDashboardRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/career': {
       id: '/career'
       path: '/career'
@@ -251,8 +283,27 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof OurPeopleSlugRouteImport
       parentRoute: typeof OurPeopleRoute
     }
+    '/insights/$slug': {
+      id: '/insights/$slug'
+      path: '/$slug'
+      fullPath: '/insights/$slug'
+      preLoaderRoute: typeof InsightsSlugRouteImport
+      parentRoute: typeof InsightsRoute
+    }
   }
 }
+
+interface InsightsRouteChildren {
+  InsightsSlugRoute: typeof InsightsSlugRoute
+}
+
+const InsightsRouteChildren: InsightsRouteChildren = {
+  InsightsSlugRoute: InsightsSlugRoute,
+}
+
+const InsightsRouteWithChildren = InsightsRoute._addFileChildren(
+  InsightsRouteChildren,
+)
 
 interface OurPeopleRouteChildren {
   OurPeopleSlugRoute: typeof OurPeopleSlugRoute
@@ -270,7 +321,8 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
   CareerRoute: CareerRoute,
-  InsightsRoute: InsightsRoute,
+  ClientDashboardRoute: ClientDashboardRoute,
+  InsightsRoute: InsightsRouteWithChildren,
   LexMundiRoute: LexMundiRoute,
   LoginRoute: LoginRoute,
   MediaCoverageRoute: MediaCoverageRoute,

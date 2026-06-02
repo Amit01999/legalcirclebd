@@ -2,6 +2,29 @@ import { Link } from "@tanstack/react-router";
 import { Facebook, Linkedin, Twitter, Youtube, MapPin, Phone, Mail } from "lucide-react";
 import LexMundi from "@/assets/LexMundi-New-Logo.png";
 
+const socialLinks = [
+  {
+    label: "Facebook",
+    href: "https://www.facebook.com/thelegalcircle",
+    Icon: Facebook,
+  },
+  {
+    label: "LinkedIn",
+    href: "https://www.linkedin.com/company/the-legal-circle/",
+    Icon: Linkedin,
+  },
+  {
+    label: "Twitter",
+    href: "https://twitter.com/thelegalcircle",
+    Icon: Twitter,
+  },
+  {
+    label: "YouTube",
+    href: "https://www.youtube.com/channel/UCciV0N6qBqXLjFe-HjpgVxw",
+    Icon: Youtube,
+  },
+];
+
 export function Footer() {
   return (
     <footer className="bg-footer font-serif text-footer-foreground">
@@ -66,8 +89,15 @@ export function Footer() {
           <h4 className="mb-[12px] text-[16px] font-normal text-[#a8a9b4]">Follow Us</h4>
           <div className="mb-[9px] h-px w-[120px] bg-brand" />
           <div className="mb-[25px] flex gap-[14px] text-white/72">
-            {[Facebook, Linkedin, Twitter, Youtube].map((Icon, i) => (
-              <a key={i} href="#" className="hover:text-brand">
+            {socialLinks.map(({ label, href, Icon }) => (
+              <a
+                key={label}
+                href={href}
+                aria-label={label}
+                target="_blank"
+                rel="noreferrer"
+                className="hover:text-brand"
+              >
                 <Icon className="h-[15px] w-[15px]" fill="currentColor" />
               </a>
             ))}

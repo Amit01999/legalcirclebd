@@ -17,6 +17,29 @@ const aboutDropdown = [
   { to: "/media-coverage", label: "Media Coverage" },
 ] as const;
 
+const socialLinks = [
+  {
+    label: "Facebook",
+    href: "https://www.facebook.com/thelegalcircle",
+    Icon: Facebook,
+  },
+  {
+    label: "LinkedIn",
+    href: "https://www.linkedin.com/company/the-legal-circle/",
+    Icon: Linkedin,
+  },
+  {
+    label: "Twitter",
+    href: "https://twitter.com/thelegalcircle",
+    Icon: Twitter,
+  },
+  {
+    label: "YouTube",
+    href: "https://www.youtube.com/channel/UCciV0N6qBqXLjFe-HjpgVxw",
+    Icon: Youtube,
+  },
+] as const;
+
 const nav = [
   { to: "/practice-areas", label: "Practice Areas" },
   { to: "/our-people", label: "Our People", dropdown: "people" },
@@ -33,6 +56,7 @@ export function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<"people" | "about" | null>(null);
+  const [hoveredNavItem, setHoveredNavItem] = useState<string | null>(null);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
@@ -43,6 +67,7 @@ export function Header() {
 
   useEffect(() => {
     setActiveDropdown(null);
+    setHoveredNavItem(null);
     setOpen(false);
   }, [location.pathname, location.hash]);
 
@@ -79,10 +104,10 @@ export function Header() {
     <header ref={headerRef} className="fixed inset-x-0 top-0 z-50 font-serif">
       {/* Top bar */}
       <div
-        className={`overflow-hidden border-b text-[#94CB43] transition-[max-height,opacity,transform,border-color,background-color] duration-500 ease-out ${
+        className={`overflow-hidden border-b text-[#94CB43] transition-[max-height,opacity,border-color,background-color] ease-out ${
           scrolled
-            ? "max-h-0 -translate-y-3 border-transparent bg-white/0 opacity-0"
-            : "max-h-[41px] translate-y-0 border-white/10 bg-black/18 opacity-100"
+            ? "max-h-0 border-transparent bg-white/0 opacity-0 duration-0"
+            : "max-h-[41px] border-white/10 bg-black/18 opacity-100 duration-300"
         }`}
       >
         <div className="container-lc flex h-[41px] max-w-[880px] items-center justify-between font-['Merriweather',serif] text-[14px] font-sans leading-[21.13px] text-[#94CB43]">
@@ -99,28 +124,33 @@ export function Header() {
           </div>
           <div className="flex items-center gap-[15px] text-[#94CB43]">
             <Search className="h-[15px] w-[15px] cursor-pointer stroke-[2] hover:text-brand" />
-            <a href="#" className="hover:text-brand">
-              <Facebook className="h-[15px] w-[15px] stroke-[1.4]" fill="currentColor" />
-            </a>
-            <a href="#" className="hover:text-brand">
-              <Linkedin className="h-[15px] w-[15px] stroke-[2]" fill="currentColor" />
-            </a>
-            <a href="#" className="hover:text-brand">
-              <Twitter className="h-[15px] w-[15px] stroke-[1.4]" fill="currentColor" />
-            </a>
-            <a href="#" className="hover:text-brand">
-              <Youtube className="h-[15px] w-[15px] stroke-[1.4]" fill="currentColor" />
-            </a>
+            {socialLinks.map(({ label, href, Icon }) => (
+              <a
+                key={label}
+                href={href}
+                aria-label={label}
+                target="_blank"
+                rel="noreferrer"
+                className="hover:text-brand"
+              >
+                <Icon
+                  className={`h-[15px] w-[15px] ${
+                    label === "LinkedIn" ? "stroke-[2]" : "stroke-[1.4]"
+                  }`}
+                  fill="currentColor"
+                />
+              </a>
+            ))}
           </div>
         </div>
       </div>
 
       {/* Main nav */}
       <div
-        className={`border-b transition-[height,background-color,border-color,box-shadow,backdrop-filter] duration-500 ease-out ${
+        className={`border-b transition-[height,background-color,border-color,box-shadow,backdrop-filter] ease-out ${
           scrolled
-            ? "border-black/10 bg-white/95 shadow-sm backdrop-blur"
-            : "border-none bg-transparent"
+            ? "animate-in slide-in-from-top duration-500 border-black/10 bg-white/95 shadow-sm backdrop-blur"
+            : "duration-0 border-none bg-transparent"
         }`}
       >
         <div
@@ -137,25 +167,34 @@ export function Header() {
             }`}
           >
             {nav.map((n) => {
-              const linkClass = `inline-flex items-start px-[15px] py-[10px] text-[15px] font-normal leading-[18px] tracking-normal font-['Merriweather'] transition-[height,color] duration-500 ease-out ${
-                scrolled
-                  ? "h-[82px] text-[#404438] hover:text-[#94CB43]"
-                  : "h-[100px] text-[#94CB43] hover:text-[#629A2A]"
-              }`;
+              const dimmed = hoveredNavItem !== null && hoveredNavItem !== n.to;
+              const navToneClass = dimmed ? "text-[#629A2A] opacity-45" : "text-[#94CB43] opacity-100";
+              const linkClass = `inline-flex items-start px-[15px] py-[10px] text-[15px] font-normal leading-[18px] tracking-normal font-['Merriweather'] transition-[height,color,opacity] duration-500 ease-out ${
+                scrolled ? "h-[82px]" : "h-[100px]"
+              } ${navToneClass}`;
 
               if ("dropdown" in n && n.dropdown === "people") {
                 return (
                   <div
                     key={n.to}
                     className="relative"
-                    onMouseEnter={() => setActiveDropdown("people")}
-                    onMouseLeave={closeDropdown}
-                    onFocus={() => setActiveDropdown("people")}
+                    onMouseEnter={() => {
+                      setActiveDropdown("people");
+                      setHoveredNavItem(n.to);
+                    }}
+                    onMouseLeave={() => {
+                      closeDropdown();
+                      setHoveredNavItem(null);
+                    }}
+                    onFocus={() => {
+                      setActiveDropdown("people");
+                      setHoveredNavItem(n.to);
+                    }}
                   >
                     <Link
                       to={n.to}
                       className={linkClass}
-                      activeProps={{ className: "text-[#94CB43]" }}
+                      activeProps={{ className: navToneClass }}
                       onClick={closeDropdown}
                       aria-expanded={activeDropdown === "people"}
                     >
@@ -187,14 +226,23 @@ export function Header() {
                   <div
                     key={n.to}
                     className="relative"
-                    onMouseEnter={() => setActiveDropdown("about")}
-                    onMouseLeave={closeDropdown}
-                    onFocus={() => setActiveDropdown("about")}
+                    onMouseEnter={() => {
+                      setActiveDropdown("about");
+                      setHoveredNavItem(n.to);
+                    }}
+                    onMouseLeave={() => {
+                      closeDropdown();
+                      setHoveredNavItem(null);
+                    }}
+                    onFocus={() => {
+                      setActiveDropdown("about");
+                      setHoveredNavItem(n.to);
+                    }}
                   >
                     <Link
                       to={n.to}
                       className={linkClass}
-                      activeProps={{ className: "text-[#94CB43]" }}
+                      activeProps={{ className: navToneClass }}
                       onClick={closeDropdown}
                       aria-expanded={activeDropdown === "about"}
                     >
@@ -225,7 +273,11 @@ export function Header() {
                   key={n.to}
                   to={n.to}
                   className={linkClass}
-                  activeProps={{ className: "text-[#94CB43]" }}
+                  activeProps={{ className: navToneClass }}
+                  onMouseEnter={() => setHoveredNavItem(n.to)}
+                  onMouseLeave={() => setHoveredNavItem(null)}
+                  onFocus={() => setHoveredNavItem(n.to)}
+                  onBlur={() => setHoveredNavItem(null)}
                   onClick={closeDropdown}
                 >
                   {n.label}
@@ -235,7 +287,7 @@ export function Header() {
           </nav>
           <button
             onClick={() => setOpen(true)}
-            className={`pt-3 lg:hidden ${scrolled ? "text-ink" : "text-white"}`}
+            className={`pt-3 lg:hidden ${scrolled ? "text-[#94CB43]" : "text-white"}`}
           >
             <Menu className="h-6 w-6" />
           </button>
