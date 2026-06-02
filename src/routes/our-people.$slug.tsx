@@ -111,19 +111,19 @@ function PersonDetailPage() {
       <section className="bg-background py-16">
         <div className="container-lc max-w-6xl">
           <div className="grid gap-10 lg:grid-cols-[260px_1fr]">
-            <aside className="lg:top-28">
+            <aside className="text-center lg:top-28 lg:text-left">
               <img
                 src={person.image}
                 alt={person.name}
-                className="mb-7 h-[345px] w-full object-cover shadow-sm"
+                className="mb-7 md:h-[345px] w-full object-cover shadow-sm"
               />
               <h2 className="mb-4 font-serif text-xl text-ink">{person.name}</h2>
-              <div className="space-y-2 text-[13px] leading-6 text-muted-foreground">
+              <div className="space-y-1 text-[13px] leading-6 text-muted-foreground">
                 {person.qualifications?.map((item) => (
                   <p key={item}>{item}</p>
                 ))}
               </div>
-              <div className="mt-6 space-y-4 text-[13px] leading-6 text-brand">
+              <div className="mt-6 space-y-1 text-[13px] leading-6 text-brand">
                 {person.positions?.map((item) => (
                   <p key={item}>{item}</p>
                 ))}
@@ -132,10 +132,10 @@ function PersonDetailPage() {
                 {person.phone && <p>M: {person.phone}</p>}
                 {person.email && <p>E: {person.email}</p>}
               </div>
-              <div className="mt-5 flex gap-3">
-                {person.whatsapp && (
+              <div className="mt-5 flex justify-center gap-3 lg:justify-start">
+                {person.phone && (
                   <a
-                    href={`https://wa.me/${person.whatsapp.replace(/\D/g, "")}`}
+                    href={`https://wa.me/${person.phone.replace(/\D/g, "")}`}
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label={`WhatsApp ${person.name}`}
@@ -226,9 +226,11 @@ function PersonHero({ title }: { title: string }) {
 
 function StaticSection({ section }: { section: ProfileSection }) {
   return (
-    <div className="border-b border-brand/70">
-      <div className="bg-secondary/50 px-4 py-3 font-serif text-lg text-brand">{section.title}</div>
-      <div className="bg-secondary/40 px-7 py-6">
+    <div className="">
+      <div className="bg-secondary/50  py-3 font-serif text-lg text-[#34A294] border-b-2 border-brand">
+        {section.title}
+      </div>
+      <div className="bg-secondary/40  py-4">
         <ul className="space-y-2 text-sm leading-7 text-muted-foreground">
           {section.items.map((item) => (
             <li key={item}>{item}</li>
@@ -249,12 +251,12 @@ function ProfileAccordion({
   onToggle: () => void;
 }) {
   return (
-    <div className="border-b border-brand/70">
+    <div className="border-b-2 border-brand">
       <button
         type="button"
         onClick={onToggle}
-        className={`flex w-full items-center justify-between bg-secondary/50 px-4 py-3 text-left font-serif text-lg transition hover:bg-secondary ${
-          isOpen ? "text-brand" : "text-ink"
+        className={`flex w-full items-center justify-between bg-secondary/50  py-3 text-left font-serif text-lg transition hover:bg-secondary ${
+          isOpen ? "text-brand" : "text-[#34A294]"
         }`}
       >
         <span>{section.title}</span>

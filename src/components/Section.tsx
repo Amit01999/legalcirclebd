@@ -27,7 +27,7 @@ export function PageHero({
   }, [heroImages.length]);
 
   return (
-    <section className="relative flex h-[60vh] min-h-[420px] items-center justify-center overflow-hidden">
+    <section className="relative flex max-sm:min-h-[320px] min-h-[420px] items-center justify-center overflow-hidden">
       {heroImages.map((heroImage, index) => (
         <img
           key={heroImage}

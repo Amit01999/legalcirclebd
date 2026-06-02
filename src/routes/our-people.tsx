@@ -1,5 +1,6 @@
 import { Link, Outlet, createFileRoute, useRouterState } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
+import { Mail } from "lucide-react";
 import { PageHero } from "@/components/Section";
 import { people, peopleTabHashes, peopleTabs, type PeopleTab } from "@/data/people";
 import heroBuilding from "@/assets/hero-building.jpg";
@@ -8,7 +9,10 @@ export const Route = createFileRoute("/our-people")({
   head: () => ({
     meta: [
       { title: "Our People — The Legal Circle" },
-      { name: "description", content: "Meet the partners, counsel and associates at The Legal Circle." },
+      {
+        name: "description",
+        content: "Meet the partners, counsel and associates at The Legal Circle.",
+      },
       { property: "og:title", content: "Our People — The Legal Circle" },
       { property: "og:description", content: "Our team of barristers, advocates and consultants." },
     ],
@@ -80,9 +84,25 @@ function OurPeoplePage() {
                     alt={p.name}
                     className="mx-auto mb-5 h-40 w-40 rounded-full border-4 border-brand/30 object-cover object-top"
                   />
-                  <h3 className="mb-2 font-serif text-lg text-brand">{p.name}</h3>
-                  <p className="mb-4 text-xs uppercase tracking-wider text-muted-foreground">{p.role}</p>
-                  <span className="text-xs uppercase tracking-[0.18em] text-muted-foreground">View Profile</span>
+                  <h3 className="mb-2 font-serif font-semibold text-lg text-brand">{p.name}</h3>
+                  <p className="mb-2 text-xs uppercase tracking-wider text-muted-foreground">
+                    {p.role}
+                  </p>
+                  <div className="mb-5 flex items-center justify-center gap-3">
+                    {p.email && (
+                      <a
+                        href={`mailto:${p.email}`}
+                        onClick={(e) => e.stopPropagation()}
+                        aria-label={`Email ${p.name}`}
+                        className="inline-flex rounded-full border border-border p-1.5 text-muted-foreground transition-colors hover:border-brand hover:text-brand"
+                      >
+                        <Mail className="h-5 w-5" />
+                      </a>
+                    )}
+                  </div>
+                  <span className="inline-block rounded-sm border border-brand/40 px-4 py-1.5 text-[11px] uppercase tracking-[0.18em] text-brand transition-colors hover:bg-brand hover:text-white">
+                    View Profile
+                  </span>
                 </Link>
               ))}
             </div>
