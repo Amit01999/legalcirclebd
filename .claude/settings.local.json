@@ -3,7 +3,19 @@
     "allow": [
       "Bash(npx vite *)",
       "Bash(npx tsc *)",
-      "Bash(python3 -c ' *)"
+      "Bash(python3 -c ' *)",
+      "PowerShell(Get-ChildItem \"d:\\\\BeproIT\\\\legalcirclebd\\\\src\\\\assets\\\\ClientDocs\\\\GeneralCorporate\" | ForEach-Object { $_.Name })",
+      "PowerShell(try { $word = New-Object -ComObject Word.Application; $word.Quit\\(\\); \"Word available\" } catch { \"Word not available\" })",
+      "Bash(npm install *)",
+      "PowerShell(Get-ChildItem \"d:\\\\BeproIT\\\\legalcirclebd\\\\src\\\\assets\\\\ClientDocs\" | ForEach-Object { \"`\"$\\($_.Name\\)`\"\" })",
+      "Read(//d/BeproIT/legalcirclebd/src/assets/ClientDocs/GeneralCorporate/**)",
+      "Bash(npm list *)",
+      "PowerShell(Get-ChildItem \"d:\\\\BeproIT\\\\legalcirclebd\\\\src\\\\assets\\\\ClientDocs\\\\Employment\" | ForEach-Object { $_.Name })",
+      "PowerShell(Write-Host \"=== assets ===\"; if \\(Test-Path \"d:\\\\BeproIT\\\\legalcirclebd\\\\src\\\\assets\\\\ClientDocs\\\\TemplateAgreement\"\\) { Get-ChildItem \"d:\\\\BeproIT\\\\legalcirclebd\\\\src\\\\assets\\\\ClientDocs\\\\TemplateAgreement\" | ForEach-Object { $_.Name } } else { \"folder not found\" }; Write-Host \"=== public/downloads ===\"; if \\(Test-Path \"d:\\\\BeproIT\\\\legalcirclebd\\\\public\\\\downloads\\\\TemplateAgreement\"\\) { Get-ChildItem \"d:\\\\BeproIT\\\\legalcirclebd\\\\public\\\\downloads\\\\TemplateAgreement\" | ForEach-Object { $_.Name } } else { \"folder not found\" })",
+      "PowerShell(Get-ChildItem \"d:\\\\BeproIT\\\\legalcirclebd\\\\src\\\\assets\\\\ClientDocs\\\\E-Commerce\" | ForEach-Object { $_.Name })",
+      "PowerShell(Get-ChildItem \"d:\\\\BeproIT\\\\legalcirclebd\\\\src\\\\assets\\\\ClientDocs\" -Directory | ForEach-Object { $_.Name })",
+      "PowerShell(Get-ChildItem \"d:\\\\BeproIT\\\\legalcirclebd\\\\public\\\\downloads\\\\Logistics\" | ForEach-Object { $_.Name })",
+      "Bash(npm run *)"
     ]
   }
 }

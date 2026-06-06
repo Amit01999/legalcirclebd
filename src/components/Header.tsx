@@ -1,8 +1,9 @@
-import { Link, useLocation } from "@tanstack/react-router";
+import { Link, useLocation, useNavigate } from "@tanstack/react-router";
 import { useEffect, useRef, useState } from "react";
 import { Facebook, Linkedin, Twitter, Youtube, Search, Menu, X, Phone, Mail } from "lucide-react";
 import { Logo } from "./Logo";
 import logoImage from "@/assets/logo.png";
+import { getSession, logout, getTlcSession, tlcLogout } from "@/lib/auth";
 
 const peopleDropdown = [
   { label: "Partners", hash: "partners" },
@@ -15,6 +16,11 @@ const peopleDropdown = [
 const aboutDropdown = [
   { to: "/recognitions", label: "Recognitions" },
   { to: "/media-coverage", label: "Media Coverage" },
+] as const;
+
+const loginDropdown = [
+  { to: "/login", label: "Retainer" },
+  { to: "/tlc-login", label: "TLC Engaged" },
 ] as const;
 
 const socialLinks = [
@@ -52,11 +58,28 @@ const nav = [
 
 export function Header() {
   const location = useLocation();
+  const navigate = useNavigate();
   const headerRef = useRef<HTMLElement | null>(null);
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
-  const [activeDropdown, setActiveDropdown] = useState<"people" | "about" | null>(null);
+  const [activeDropdown, setActiveDropdown] = useState<"people" | "about" | "login" | null>(null);
   const [hoveredNavItem, setHoveredNavItem] = useState<string | null>(null);
+  const [mobileLoginOpen, setMobileLoginOpen] = useState(false);
+
+  const session = getSession();
+  const tlcSession = getTlcSession();
+
+  const handleRetainerSignOut = () => {
+    logout();
+    setOpen(false);
+    navigate({ to: "/login" });
+  };
+
+  const handleTlcSignOut = () => {
+    tlcLogout();
+    setOpen(false);
+    navigate({ to: "/tlc-login" });
+  };
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
@@ -69,6 +92,7 @@ export function Header() {
     setActiveDropdown(null);
     setHoveredNavItem(null);
     setOpen(false);
+    setMobileLoginOpen(false);
   }, [location.pathname, location.hash]);
 
   useEffect(() => {
@@ -107,7 +131,7 @@ export function Header() {
         className={`overflow-hidden border-b text-[#94CB43] transition-[max-height,opacity,border-color,background-color] ease-out ${
           scrolled
             ? "max-h-0 border-transparent bg-white/0 opacity-0 duration-0"
-            : "max-h-[41px] border-white/10 bg-black/18 opacity-100 duration-300"
+            : "max-h-[41px] border-white/10 bg-transparent opacity-100 duration-300"
         }`}
       >
         <div className="container-lc flex h-[41px] max-w-[880px] items-center justify-between font-['Merriweather',serif] text-[14px] font-sans leading-[21.13px] text-[#94CB43]">
@@ -168,7 +192,9 @@ export function Header() {
           >
             {nav.map((n) => {
               const dimmed = hoveredNavItem !== null && hoveredNavItem !== n.to;
-              const navToneClass = dimmed ? "text-[#629A2A] opacity-45" : "text-[#94CB43] opacity-100";
+              const navToneClass = dimmed
+                ? "text-[#629A2A] opacity-45"
+                : "text-[#94CB43] opacity-100";
               const linkClass = `inline-flex items-start px-[15px] py-[10px] text-[15px] font-normal leading-[18px] tracking-normal font-['Merriweather'] transition-[height,color,opacity] duration-500 ease-out ${
                 scrolled ? "h-[82px]" : "h-[100px]"
               } ${navToneClass}`;
@@ -268,6 +294,80 @@ export function Header() {
                 );
               }
 
+              /* ── Login nav item ── */
+              if (n.to === "/login") {
+                /* Retainer session active → Retainer sign-out */
+                if (session) {
+                  return (
+                    <button
+                      key="sign-out"
+                      onClick={handleRetainerSignOut}
+                      onMouseEnter={() => setHoveredNavItem(n.to)}
+                      onMouseLeave={() => setHoveredNavItem(null)}
+                      className={linkClass}
+                    >
+                      Sign Out
+                    </button>
+                  );
+                }
+
+                /* TLC session active → TLC sign-out */
+                if (tlcSession) {
+                  return (
+                    <button
+                      key="sign-out-tlc"
+                      onClick={handleTlcSignOut}
+                      onMouseEnter={() => setHoveredNavItem(n.to)}
+                      onMouseLeave={() => setHoveredNavItem(null)}
+                      className={linkClass}
+                    >
+                      Sign Out
+                    </button>
+                  );
+                }
+
+                /* No session → Login dropdown (Retainer / TLC Engaged) */
+                return (
+                  <div
+                    key="login-dropdown"
+                    className="relative"
+                    onMouseEnter={() => {
+                      setActiveDropdown("login");
+                      setHoveredNavItem(n.to);
+                    }}
+                    onMouseLeave={() => {
+                      closeDropdown();
+                      setHoveredNavItem(null);
+                    }}
+                  >
+                    <button
+                      className={linkClass}
+                      onClick={() => setActiveDropdown((d) => (d === "login" ? null : "login"))}
+                      aria-expanded={activeDropdown === "login"}
+                      aria-haspopup="true"
+                    >
+                      {n.label}
+                    </button>
+                    <div
+                      className={`${dropdownPanelClass} ${scrolled ? "top-[46px]" : "top-[52px]"} w-[180px] ${
+                        activeDropdown === "login" ? visibleDropdownClass : hiddenDropdownClass
+                      }`}
+                    >
+                      {loginDropdown.map((item) => (
+                        <Link
+                          key={item.to}
+                          to={item.to}
+                          onClick={closeDropdown}
+                          className={dropdownItemClass}
+                        >
+                          {item.label}
+                        </Link>
+                      ))}
+                    </div>
+                  </div>
+                );
+              }
+
               return (
                 <Link
                   key={n.to}
@@ -306,13 +406,58 @@ export function Header() {
           <nav className="flex flex-col gap-1 px-5">
             {nav.map((n) => (
               <div key={n.to} className="border-b">
-                <Link
-                  to={n.to}
-                  onClick={() => setOpen(false)}
-                  className="block py-3 text-base text-ink hover:text-brand"
-                >
-                  {n.label}
-                </Link>
+                {n.to === "/login" ? (
+                  /* Login / Sign-out logic for mobile */
+                  session ? (
+                    <button
+                      onClick={handleRetainerSignOut}
+                      className="block w-full py-3 text-left text-base text-brand hover:text-brand/70"
+                    >
+                      Sign Out
+                    </button>
+                  ) : tlcSession ? (
+                    <button
+                      onClick={handleTlcSignOut}
+                      className="block w-full py-3 text-left text-base text-brand hover:text-brand/70"
+                    >
+                      Sign Out
+                    </button>
+                  ) : (
+                    <>
+                      <button
+                        onClick={() => setMobileLoginOpen((v) => !v)}
+                        className="flex w-full items-center justify-between py-3 text-left text-base text-ink hover:text-brand"
+                      >
+                        Login
+                        <span className="text-[10px] text-[#aaa]">
+                          {mobileLoginOpen ? "▲" : "▼"}
+                        </span>
+                      </button>
+                      {mobileLoginOpen && (
+                        <div className="grid gap-1 pb-3 pl-4">
+                          {loginDropdown.map((item) => (
+                            <Link
+                              key={item.to}
+                              to={item.to}
+                              onClick={() => setOpen(false)}
+                              className="py-1.5 text-sm text-[#629A2A] hover:text-brand"
+                            >
+                              {item.label}
+                            </Link>
+                          ))}
+                        </div>
+                      )}
+                    </>
+                  )
+                ) : (
+                  <Link
+                    to={n.to}
+                    onClick={() => setOpen(false)}
+                    className="block py-3 text-base text-ink hover:text-brand"
+                  >
+                    {n.label}
+                  </Link>
+                )}
                 {"dropdown" in n && n.dropdown === "people" && (
                   <div className="grid gap-1 pb-3 pl-4">
                     {peopleDropdown.map((item) => (

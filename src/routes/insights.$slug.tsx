@@ -1,6 +1,15 @@
 import { createFileRoute, notFound, Link } from "@tanstack/react-router";
 import { useState } from "react";
-import { ChevronLeft, ChevronRight, Copy, Check, Mail } from "lucide-react";
+import {
+  CalendarDays,
+  Check,
+  ChevronLeft,
+  ChevronRight,
+  Copy,
+  ExternalLink,
+  Mail,
+  UserRound,
+} from "lucide-react";
 import { getPostBySlug, getRelatedPosts, posts } from "@/data/insights";
 
 export const Route = createFileRoute("/insights/$slug")({
@@ -15,7 +24,7 @@ export const Route = createFileRoute("/insights/$slug")({
   },
   head: ({ loaderData }) => ({
     meta: [
-      { title: `${loaderData?.post.title} — The Legal Circle` },
+      { title: `${loaderData?.post.title} \u2014 The Legal Circle` },
       { name: "description", content: loaderData?.post.excerpt.slice(0, 160) },
       { property: "og:title", content: loaderData?.post.title },
       { property: "og:description", content: loaderData?.post.excerpt.slice(0, 160) },
@@ -65,165 +74,178 @@ function InsightDetailPage() {
     }
   };
 
-  const pageUrl =
-    typeof window !== "undefined" ? encodeURIComponent(window.location.href) : "";
+  const pageUrl = typeof window !== "undefined" ? encodeURIComponent(window.location.href) : "";
   const pageTitle = encodeURIComponent(post.title);
 
   return (
-    <div className="min-h-screen bg-white">
-      {/* ── Article ─────────────────────────────────────────── */}
-      <section className="pt-36 pb-16">
-        <div className="container-lc max-w-[800px]">
-          {/* Breadcrumb */}
+    <div className="min-h-screen bg-[#F7F8F4]">
+      <section className="relative overflow-hidden border-b border-[#E5E8DF] bg-[#F3F5EF] pt-32 pb-10 md:pt-40 md:pb-12">
+        <div className="absolute inset-x-0 top-0 h-px bg-white/70" />
+        <div className="container-lc relative max-w-[1080px]">
           <Link
             to="/insights"
-            className="mb-8 inline-flex items-center gap-1 text-xs uppercase tracking-widest text-muted-foreground transition hover:text-brand"
+            className="inline-flex items-center gap-2 border border-[#D9DEC9] bg-white px-3.5 py-1.5 text-[11px] uppercase tracking-[0.2em] text-[#66705D] transition hover:border-brand hover:text-brand"
           >
-            <ChevronLeft className="h-3 w-3" />
+            <ChevronLeft className="h-3.5 w-3.5" />
             Insights
           </Link>
 
-          {/* Title */}
-          <h1 className="mt-4 font-serif text-3xl leading-tight text-ink md:text-4xl lg:text-[2.6rem]">
-            {post.title}
-          </h1>
+          <div className="mt-6 max-w-[820px]">
+            <h1 className="max-w-full break-words font-serif text-3xl leading-[1.16] text-[#252A25] md:text-4xl lg:text-[3rem]">
+              {post.title}
+            </h1>
 
-          {/* Meta ─ Author + Published On */}
-          <div className="mt-8 grid grid-cols-2 gap-6 border-b border-t border-border py-6">
-            <div>
-              <p className="mb-1 text-[10px] uppercase tracking-[0.2em] text-muted-foreground">
-                Author:
-              </p>
-              <p className="font-medium text-brand">{authorDisplay}</p>
+            <div className="mt-4 grid border border-[#DDE3D3] bg-white shadow-[0_10px_24px_rgba(36,42,36,0.05)] sm:grid-cols-2">
+              <div className="flex gap-3 border-b border-[#E7EBDD] p-4 sm:border-b-0">
+                <span className="mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center border border-[#DDE3D3] bg-[#F8FAF3] text-brand">
+                  <UserRound className="h-4 w-4" />
+                </span>
+                <div>
+                  <p className="mb-1 text-[10px] uppercase tracking-[0.22em] text-[#7B8475]">
+                    Author:
+                  </p>
+                  <p className="text-[15px] font-medium leading-relaxed text-[#252A25]">
+                    {authorDisplay}
+                  </p>
+                </div>
+              </div>
+              <div className="flex gap-3 p-4 sm:border-l sm:border-[#E7EBDD]">
+                <span className="mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center border border-[#DDE3D3] bg-[#F8FAF3] text-brand">
+                  <CalendarDays className="h-4 w-4" />
+                </span>
+                <div>
+                  <p className="mb-1 text-[10px] uppercase tracking-[0.22em] text-[#7B8475]">
+                    Published on:
+                  </p>
+                  <p className="text-[15px] font-medium leading-relaxed text-[#252A25]">
+                    {post.date}
+                  </p>
+                </div>
+              </div>
             </div>
-            <div>
-              <p className="mb-1 text-[10px] uppercase tracking-[0.2em] text-muted-foreground">
-                Published on:
-              </p>
-              <p className="font-medium text-brand">{post.date}</p>
-            </div>
-          </div>
-
-          {/* Excerpt / Body */}
-          <div className="mt-8 space-y-4 text-[15px] leading-[1.9] text-gray-700">
-            {isPlaceholderExcerpt ? null : (
-              post.excerpt.split("\n\n").map((para, i) => (
-                <p key={i} className="whitespace-pre-line">
-                  {para}
-                </p>
-              ))
-            )}
-
-            {post.url && (
-              <p>
-                <a
-                  href={post.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="font-medium text-brand underline-offset-4 hover:underline"
-                >
-                  {isPlaceholderExcerpt ? "Read the full article →" : "Click here to read more"}
-                </a>
-              </p>
-            )}
-          </div>
-
-          {/* Author card */}
-          <div className="mt-12 border-t border-border pt-10">
-            <h2 className="font-serif text-2xl text-ink">Author</h2>
-            <p className="mt-3 font-medium text-brand">{authorDisplay}</p>
-            <div className="mt-4 flex gap-3">
-              <button
-                type="button"
-                onClick={handleCopy}
-                title={copied ? "Copied!" : "Copy link"}
-                className="flex h-9 w-9 items-center justify-center rounded-full border border-border text-muted-foreground transition hover:border-brand hover:text-brand"
-              >
-                {copied ? (
-                  <Check className="h-4 w-4" />
-                ) : (
-                  <Copy className="h-4 w-4" />
-                )}
-              </button>
-              <a
-                href="mailto:enquiry@legalcirclebd.com"
-                title="Email us"
-                className="flex h-9 w-9 items-center justify-center rounded-full border border-border text-muted-foreground transition hover:border-brand hover:text-brand"
-              >
-                <Mail className="h-4 w-4" />
-              </a>
-            </div>
-          </div>
-
-          {/* Share on */}
-          <div className="mt-8 flex items-center gap-4 border-b border-border pb-10">
-            <span className="text-[10px] uppercase tracking-[0.2em] text-muted-foreground">
-              Share on
-            </span>
-            <a
-              href={`https://www.facebook.com/sharer/sharer.php?u=${pageUrl}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Share on Facebook"
-              className="flex h-8 w-8 items-center justify-center rounded-full bg-[#1877F2] text-white transition hover:opacity-80"
-            >
-              <FacebookSVG />
-            </a>
-            <a
-              href={`https://twitter.com/intent/tweet?url=${pageUrl}&text=${pageTitle}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Share on Twitter"
-              className="flex h-8 w-8 items-center justify-center rounded-full bg-[#1DA1F2] text-white transition hover:opacity-80"
-            >
-              <TwitterSVG />
-            </a>
-            <a
-              href={`https://www.linkedin.com/shareArticle?mini=true&url=${pageUrl}&title=${pageTitle}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Share on LinkedIn"
-              className="flex h-8 w-8 items-center justify-center rounded-full bg-[#0A66C2] text-white transition hover:opacity-80"
-            >
-              <LinkedInSVG />
-            </a>
           </div>
         </div>
       </section>
 
-      {/* ── Previous / Next ──────────────────────────────────── */}
-      <section className="bg-[#F7F7F7] py-10">
-        <div className="container-lc max-w-[800px]">
-          <div className="grid grid-cols-2 gap-6">
+      <section className="bg-white py-8 md:py-10">
+        <div className="container-lc max-w-[820px]">
+          <article className="border-t border-[#DDE3D3] pt-6">
+            <div className="space-y-4 text-[16px] leading-[1.85] text-[#3F473E]">
+              {isPlaceholderExcerpt
+                ? null
+                : post.excerpt.split("\n\n").map((para, i) => (
+                    <p key={i} className="whitespace-pre-line">
+                      {para}
+                    </p>
+                  ))}
+
+              {post.url && (
+                <p className="pt-2">
+                  <a
+                    href={post.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 border border-brand bg-brand px-4 py-2.5 text-[13px] font-medium uppercase tracking-[0.16em] text-white transition hover:border-[#7DA52A] hover:bg-[#7DA52A]"
+                  >
+                    {isPlaceholderExcerpt
+                      ? "Read the full article \u2192"
+                      : "Click here to read more"}
+                    <ExternalLink className="h-4 w-4" />
+                  </a>
+                </p>
+              )}
+            </div>
+
+            <div className="mt-8 border-y border-[#DDE3D3] py-6">
+              <h2 className="font-serif text-2xl text-[#252A25]">Author</h2>
+              <p className="mt-2 font-medium text-brand">{authorDisplay}</p>
+              <div className="mt-4 flex gap-3">
+                <button
+                  type="button"
+                  onClick={handleCopy}
+                  title={copied ? "Copied!" : "Copy link"}
+                  className="flex h-10 w-10 items-center justify-center border border-[#DDE3D3] text-[#6E7668] transition hover:border-brand hover:bg-[#F8FAF3] hover:text-brand"
+                >
+                  {copied ? <Check className="h-4 w-4" /> : <Copy className="h-4 w-4" />}
+                </button>
+                <a
+                  href="mailto:enquiry@legalcirclebd.com"
+                  title="Email us"
+                  className="flex h-10 w-10 items-center justify-center border border-[#DDE3D3] text-[#6E7668] transition hover:border-brand hover:bg-[#F8FAF3] hover:text-brand"
+                >
+                  <Mail className="h-4 w-4" />
+                </a>
+              </div>
+            </div>
+
+            <div className="mt-5 flex items-center gap-3 pb-1">
+              <span className="text-[10px] uppercase tracking-[0.22em] text-[#7B8475]">
+                Share on
+              </span>
+              <a
+                href={`https://www.facebook.com/sharer/sharer.php?u=${pageUrl}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Share on Facebook"
+                className="flex h-8 w-8 items-center justify-center bg-[#1877F2] text-white transition hover:opacity-85"
+              >
+                <FacebookSVG />
+              </a>
+              <a
+                href={`https://twitter.com/intent/tweet?url=${pageUrl}&text=${pageTitle}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Share on Twitter"
+                className="flex h-8 w-8 items-center justify-center bg-[#1DA1F2] text-white transition hover:opacity-85"
+              >
+                <TwitterSVG />
+              </a>
+              <a
+                href={`https://www.linkedin.com/shareArticle?mini=true&url=${pageUrl}&title=${pageTitle}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Share on LinkedIn"
+                className="flex h-8 w-8 items-center justify-center bg-[#0A66C2] text-white transition hover:opacity-85"
+              >
+                <LinkedInSVG />
+              </a>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section className="border-y border-[#E5E8DF] bg-[#F3F5EF] py-8">
+        <div className="container-lc max-w-[1080px]">
+          <div className="grid gap-4 md:grid-cols-2">
             <div>
               {prev && (
                 <Link
                   to="/insights/$slug"
                   params={{ slug: prev.slug }}
-                  className="group block"
+                  className="group block h-full border border-[#DDE3D3] bg-white p-5 transition hover:-translate-y-0.5 hover:border-brand hover:shadow-[0_16px_34px_rgba(36,42,36,0.08)]"
                 >
-                  <div className="mb-2 flex items-center gap-1.5 text-[10px] uppercase tracking-[0.2em] text-muted-foreground transition group-hover:text-brand">
-                    <ChevronLeft className="h-3 w-3" />
+                  <div className="mb-2 flex items-center gap-2 text-[10px] uppercase tracking-[0.22em] text-[#7B8475] transition group-hover:text-brand">
+                    <ChevronLeft className="h-3.5 w-3.5" />
                     Previous Article
                   </div>
-                  <p className="font-serif text-base leading-snug text-ink transition group-hover:text-brand line-clamp-2">
+                  <p className="font-serif text-lg leading-snug text-[#252A25] transition group-hover:text-brand line-clamp-2">
                     {prev.title}
                   </p>
                 </Link>
               )}
             </div>
-            <div className="text-right">
+            <div>
               {next && (
                 <Link
                   to="/insights/$slug"
                   params={{ slug: next.slug }}
-                  className="group block"
+                  className="group block h-full border border-[#DDE3D3] bg-white p-5 text-left transition hover:-translate-y-0.5 hover:border-brand hover:shadow-[0_16px_34px_rgba(36,42,36,0.08)] md:text-right"
                 >
-                  <div className="mb-2 flex items-center justify-end gap-1.5 text-[10px] uppercase tracking-[0.2em] text-muted-foreground transition group-hover:text-brand">
+                  <div className="mb-2 flex items-center gap-2 text-[10px] uppercase tracking-[0.22em] text-[#7B8475] transition group-hover:text-brand md:justify-end">
                     Next Article
-                    <ChevronRight className="h-3 w-3" />
+                    <ChevronRight className="h-3.5 w-3.5" />
                   </div>
-                  <p className="font-serif text-base leading-snug text-ink transition group-hover:text-brand line-clamp-2">
+                  <p className="font-serif text-lg leading-snug text-[#252A25] transition group-hover:text-brand line-clamp-2">
                     {next.title}
                   </p>
                 </Link>
@@ -233,25 +255,23 @@ function InsightDetailPage() {
         </div>
       </section>
 
-      {/* ── You May Also Like ────────────────────────────────── */}
-      <section className="py-16">
-        <div className="container-lc max-w-[1000px]">
-          <h2 className="mb-12 text-center text-sm font-semibold uppercase tracking-[0.3em] text-brand">
+      <section className="bg-white py-10">
+        <div className="container-lc max-w-[1080px]">
+          <h2 className="mb-7 text-center text-sm font-semibold uppercase tracking-[0.3em] text-brand">
             You May Also Like
           </h2>
-          <div className="grid gap-8 md:grid-cols-3">
+          <div className="grid gap-4 md:grid-cols-3">
             {related.map((r) => (
-              <article key={r.slug} className="border-t-2 border-brand pt-5">
-                <Link
-                  to="/insights/$slug"
-                  params={{ slug: r.slug }}
-                  className="group block"
-                >
-                  <h3 className="font-serif text-lg leading-snug text-ink transition group-hover:text-brand line-clamp-3">
+              <article
+                key={r.slug}
+                className="group border border-[#DDE3D3] bg-[#FBFCF8] p-5 transition hover:-translate-y-0.5 hover:border-brand hover:bg-white hover:shadow-[0_16px_34px_rgba(36,42,36,0.08)]"
+              >
+                <Link to="/insights/$slug" params={{ slug: r.slug }} className="group block">
+                  <h3 className="font-serif text-lg leading-snug text-[#252A25] transition group-hover:text-brand line-clamp-3">
                     {r.title}
                   </h3>
                 </Link>
-                <p className="mt-3 text-[10px] uppercase tracking-[0.2em] text-brand">
+                <p className="mt-4 border-t border-[#DDE3D3] pt-3 text-[10px] uppercase tracking-[0.22em] text-brand">
                   Insights
                 </p>
               </article>

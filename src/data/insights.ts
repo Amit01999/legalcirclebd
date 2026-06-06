@@ -16,38 +16,52 @@ function slugify(title: string): string {
 
 const rawPosts = [
   {
+    date: "May 13, 2026",
+    title:
+      "Asian Legal Insights - Bangladesh Special Edition Part.1 (May 2026) - Framework for Foreign Investment in Bangladesh",
+    author: "Anita Ghazi Rahman & Sameera Mahmud",
+    excerpt: "To read the full article, Click here.",
+    url: "https://www.morihamada.com/en/insights/newsletters/138996",
+  },
+  {
     date: "February 15, 2026",
     title: "Directors in share market",
+    author: "Anita Ghazi Rahman",
     excerpt: "To read the full article, Click here.",
     url: "https://today.thefinancialexpress.com.bd/views-opinion/directors-in-share-market-1770995401",
   },
   {
     date: "November 10, 2025",
     title: "Banking on change: key reforms transforming Bangladesh's financial sector",
+    author: "Sameera Mahmud",
     excerpt: "To read the full article, Click here.",
     url: "https://today.thefinancialexpress.com.bd/32nd-anniversary-issue-1/banking-on-change-key-reforms-transforming-bangladeshs-financial-sector-1762672383",
   },
   {
     date: "May 11, 2025",
     title: "FAQ on Board Meetings",
+    author: "Anita Ghazi Rahman",
     excerpt: "To read the full article, Click here.",
     url: "https://legalcirclebd.com/wp-content/uploads/2025/05/FAQ-on-Board-Meetings.pdf",
   },
   {
     date: "December 10, 2024",
     title: "Independent directors: The role and its evolution",
+    author: "Anita Ghazi Rahman",
     excerpt: "To read the full article, Click here.",
     url: "https://thefinancialexpress.com.bd/views/views/independent-directors-the-role-and-its-evolution",
   },
   {
     date: "November 10, 2024",
     title: "Ensuring judicial oversight in lawful interception",
+    author: "Nafiul Alam Shupto",
     excerpt: "To read the full article, Click here.",
     url: "https://www.thedailystar.net/law-our-rights/news/ensuring-judicial-oversight-lawful-interception-3747711",
   },
   {
     date: "September 26, 2024",
     title: "Will this remain a nation for men?",
+    author: "Anita Ghazi Rahman",
     excerpt: "To read the full article, Click here.",
     url: "https://www.dhakatribune.com/opinion/longform/359498/will-this-remain-a-nation-for-men",
   },
@@ -62,18 +76,21 @@ const rawPosts = [
   {
     date: "September 15, 2023",
     title: "Navigating legal waters: Independent contractors' status in Bangladesh",
+    author: "Nauriin Ahmed",
     excerpt: "To read the full article, click here.",
     url: "https://www.thedailystar.net/law-our-rights/news/navigating-legal-waters-independent-contractors-status-bangladesh-3419266?trk=feed-detail_main-feed-card_feed-article-content",
   },
   {
     date: "September 1, 2023",
     title: "Cryptocurrency Conundrum Lessons from the MTFE Scam in Bangladesh",
+    author: "Nauriin Ahmed",
     excerpt: "To read the full article, click here.",
     url: "https://www.thedailystar.net/law-our-rights/news/cryptocurrency-conundrum-lessons-the-mtfe-scam-bangladesh-3408416",
   },
   {
     date: "July 31, 2023",
     title: "FAQ on Administration and Distribution of a Deceased's Estate under Bangladesh Law",
+    author: "Pushpo Rahman",
     excerpt:
       "Under the probate and administration law of Bangladesh, who has the prior right to take up administration and distribution of a deceased's estate?",
     url: "https://legalcirclebd.com/wp-content/uploads/2023/08/FAQ-on-Administration-and-Distribution-of-a-Deceaseds-Estate-under-Bangladesh-Law.pdf",
@@ -81,6 +98,7 @@ const rawPosts = [
   {
     date: "July 22, 2023",
     title: "Are married women barred from being trustees in Bangladesh?",
+    author: "Anita Ghazi Rahman",
     excerpt:
       "The concept of Trust is assumed to have existed since Roman times; decidedly since the 1400s in English law.",
     url: "https://today.thefinancialexpress.com.bd/views-opinion/are-married-women-barred-from-being-trustees-in-bangladesh-1688653042",
@@ -88,6 +106,7 @@ const rawPosts = [
   {
     date: "July 4, 2023",
     title: "FAQ ON DIGITAL BANK GUIDELINES",
+    author: "Anita Ghazi Rahman",
     excerpt:
       "The central bank of Bangladesh, the Bangladesh Bank issued the Guidelines to Establish Digital Bank.",
     url: "https://legalcirclebd.com/wp-content/uploads/2023/07/FAQ-on-Digital-Bank-Guidelines_1.pdf",
@@ -95,12 +114,14 @@ const rawPosts = [
   {
     date: "June 4, 2023",
     title: "FAQ Regarding Enforcement of Foreign Judgement in Bangladesh",
+    author: "Nauriin Ahmed",
     excerpt: "To read full report, click here.",
     url: "https://legalcirclebd.com/wp-content/uploads/2023/06/FAQ-Regarding-Enforcement-of-Foreign-Judgement-in-Bangladesh.pdf",
   },
   {
     date: "December 15, 2022",
     title: "SAFE investments in Bangladesh",
+    author: "Anita Ghazi Rahman",
     excerpt:
       "The goal of this article is to explore what SAFE instruments are and how they can be made an instrument of choice in Bangladesh for early-stage companies.",
     url: "https://today.thefinancialexpress.com.bd/29th-anniversary-issue-3/safe-investments-in-bangladesh-1670325247",
@@ -108,6 +129,7 @@ const rawPosts = [
   {
     date: "June 28, 2022",
     title: "FAQ on owning Real Estate Properties by Dual Citizenship Holders in Bangladesh",
+    author: "Taahsina Raisa Rabbi",
     excerpt:
       "Can foreign nationals sell property in Bangladesh through a duly registered Power of Attorney?",
     url: "https://legalcirclebd.com/wp-content/uploads/2022/06/FAQ-on-owning-Real-Estate-Properties-by-Dual-Citizenship-Holders-in-Bangladesh.pdf",
@@ -115,6 +137,7 @@ const rawPosts = [
   {
     date: "February 24, 2022",
     title: "Global M&A Trends Report 2022",
+    author: "Anita Ghazi Rahman",
     excerpt:
       "The Legal Circle is proud to have contributed to the Global M&A Trends Report 2022, the latest edition of the annual analysis of key trends.",
     url: "https://hubs.ly/Q014pWqr0",
@@ -122,6 +145,7 @@ const rawPosts = [
   {
     date: "February 13, 2022",
     title: "Telecoms and Media An overview of regulation in 44 jurisdictions worldwide",
+    author: "Daniah Khandker",
     excerpt: "The Legal Circle is the contributor from Bangladesh.",
     url: "https://www.hwglaw.com/wp-content/uploads/2013/04/43F06D42424A3AA831983884C377BF53.pdf",
   },
@@ -136,12 +160,14 @@ const rawPosts = [
     date: "January 29, 2022",
     title:
       "Legal reform as a catalyst for social enterprise: an international social enterprise law & policy report",
+    author: "Catalyst 2030",
     excerpt: `"Achieving rapid, large-scale improvements in social, environmental, and economic outcomes for people and business in all countries around the world is an imperative that requires an "all hands-on deck" approach. It is not enough to leave it to governmental and non-governmental organizations to do the hard work of addressing climate change, environmental degradation, and inequalities in health outcomes, education, and social welfare. On the other hand, while many businesses have also taken steps to address these problems, we cannot rely on the goodwill of business interests at large to reform economic systems to promote sustainable growth." This report is prepared by Morrison & Foerster LLP with support from Lex Mundi Pro Bono Foundation. Contributors from The Legal Circle to this Report: Anita Ghazi Rahman. Sameera Mahmud, Nauriin Ahmed, Nafiul Alam Shupto,`,
     url: "https://www.lexmundiprobono.org/wp-content/uploads/2022/01/Lex_Mundi_ProBono_A4_Report_INTERACTIVE_2022.pdf",
   },
   {
     date: "January 4, 2022",
     title: "FAQ on Company Law in Bangladesh",
+    author: "The Legal Circle",
     excerpt: `A. Types of Company :
 The Companies Act, 1994 defines the word company as "a company formed and registered under this Act or an existing company". Therefore, a company is formed under the Companies Act, 1994 by a group of people who come together for achieving a common objective.
 
@@ -173,6 +199,7 @@ In 2020, the Companies Act, 1994 has been amended twice by the Parliament and vi
   {
     date: "December 22, 2021",
     title: "Employee Stock Option (ESO) - a beneficial plan for both the company and the employees",
+    author: "Anita Ghazi Rahman",
     excerpt:
       "The Government's latest 8th five-year plan has set a job-creation target of 11.33 million between FY 2021-2022 and 2024-2025.",
     url: "https://today.thefinancialexpress.com.bd/views-opinion/employee-stock-option-eso-a-beneficial-plan-for-both-the-company-and-the-employees-1640093335",
@@ -180,6 +207,7 @@ In 2020, the Companies Act, 1994 has been amended twice by the Parliament and vi
   {
     date: "November 24, 2021",
     title: "Investing workers' funds differently: securities seen best choice",
+    author: "Anita Ghazi Rahman",
     excerpt:
       "Like pension funds for the West, workers funds are for Bangladesh in terms of post-retirement planning.",
     url: "https://today.thefinancialexpress.com.bd/28th-anniversary-issue-2/investing-workers-funds-differently-securities-seen-best-choice-1637660153",
@@ -187,12 +215,14 @@ In 2020, the Companies Act, 1994 has been amended twice by the Parliament and vi
   {
     date: "November 4, 2021",
     title: "FAQ on Workers' Funds in Bangladesh",
+    author: "The Legal Circle",
     excerpt: "Discussion on different types of workers' fund in Bangladesh.",
     url: "https://legalcirclebd.com/wp-content/uploads/2021/11/FAQ-Workers-Fund-in-Bangladesh-Final.pdf",
   },
   {
     date: "June 10, 2021",
     title: "FAQ on Trusts",
+    author: "The Legal Circle",
     excerpt:
       "A Trust is an obligation imposed on one or more persons, Trustees, with regard to property.",
     url: "https://legalcirclebd.com/wp-content/uploads/2021/06/FAQ-on-Trusts.pdf",
@@ -200,6 +230,7 @@ In 2020, the Companies Act, 1994 has been amended twice by the Parliament and vi
   {
     date: "May 1, 2021",
     title: "Limited aspect regarding tort actions maintainable under the Laws of Bangladesh",
+    author: "Karishma Jahan",
     excerpt: `The Legal Circle Team, led by Barrister Karishma Jahan is pleased to have assisted Leigh Day in this ongoing claim on a limited aspect regarding tort actions maintainable under the Laws of Bangladesh. The High Court of Justice (UK) has given an initial ruling that a Bangladeshi woman whose husband died while dismantling an oil tanker at a shipbreaking yard in 2018 can file a negligence claim against a British company involved in the vessel's sale.`,
     url: "https://bit.ly/30qtexq?fbclid=IwAR0x12vj7LcLMFxK0gMNdiNLPHygSuiM9CMUCLKuYAsGahqIqbz2pju75zQ",
   },
@@ -213,6 +244,7 @@ In 2020, the Companies Act, 1994 has been amended twice by the Parliament and vi
   {
     date: "January 1, 2021",
     title: "Fairwork Bangladesh Ratings 2021: Labour Standards in the Gig Economy",
+    author: "Anita Ghazi Rahman",
     excerpt: `This first Fairwork report for Bangladesh examines gig workers' rights in what is a relatively young market and capital-intensive sector. Overall, the scores awarded to platforms in Bangladesh in the first year were very low, reflecting an absence of labour protections in the wider informal economy as well as in the platform economy, and substantial room for improvement in subsequent scoring rounds.
 
 The platform economy model continues to attract workers in Bangladesh as they feel the sector can offer a regular cash flow and flexible working hours. However, the annual Fairwork Bangladesh ratings show that the working conditions of platform workers are far from desirable. They continue to face unfair labour practices and lack protections afforded to employees.
@@ -230,6 +262,7 @@ We hope that this report will help set the agenda of fairer working conditions f
   {
     date: "December 2, 2020",
     title: "Bangladesh chapter on Global Legal Insights",
+    author: "Karishma Jahan",
     excerpt: `The Legal Circle is proud to have partnered with Global Legal Insights on its Energy 2021 guide. Sharing Karishma Jahan's contribution to the Bangladesh chapter on Global Legal Insights - Energy 2021. The chapter provides an overview of the current energy mix in Bangladesh, development in government policy and strategy in the last 12 months as well as changes in the energy situation in the last 12 months which are likely to have an impact on future direction or policy.`,
     url: "https://bit.ly/3nlq5ZW?fbclid=IwAR3xgyck-ZSwoKfa2_VxIezh_z_fTrMJXgYRZDkMc0FAcBYoKKG3N8RCxg4",
   },
@@ -238,6 +271,7 @@ We hope that this report will help set the agenda of fairer working conditions f
     title: "Data, digitalisation and public welfare post-covid-19",
     excerpt: `Accentuating the need and importance of data in this day and age, an article titled, "Data, digitalisation and public welfare post-covid-19", co-authored by Barrister Anita Ghazi Rahman and Hon'ble Deputy Minister for Education Mr. Mohibul H. Chowdhoury has been published in the WhiteBoard (a quarterly policy Magazine by Center for Research and Information).`,
     url: "https://whiteboardmagazine.com/1954/data-digitalisation-and-public-welfare-post-covid-19/?fbclid=IwAR0SenGjqGiRlqimO7vBAN5DgOyQnhLx2bOR8UoPhlAUyvr9YQg2WBfErok",
+    author: "Anita Ghazi Rahman",
   },
   {
     date: "August 11, 2020",
@@ -245,13 +279,13 @@ We hope that this report will help set the agenda of fairer working conditions f
     excerpt:
       "Lamisa Fahima Alam, Abir Chowdhury and Ramisa Jahan wrote on Digitising the NGO Affairs Bureau.",
     url: "https://www.thedailystar.net/law-our-rights/news/digitising-the-ngo-affairs-bureau-1943005",
-    author: "Lamisa Fahima Alam, Abir Chowdhury & Ramisa Jahan",
+    author: "Lamisa Fahima Alam",
   },
   {
     date: "July 15, 2020",
     title: "Easing repatriation of proceeds from share sale",
+    author: "Anita Ghazi Rahman ",
     excerpt: `Addressing the recent change of repatriation policy by Bangladesh Bank, an article titled "Easing repatriation of proceeds from share sale" written by Barrister Anita Ghazi Rahman and Ms. Nauriin Ahmed has been published in the Financial Express.`,
-    author: "Anita Ghazi Rahman & Nauriin Ahmed",
     url: "https://bit.ly/2OyTJuT?fbclid=IwAR3SO0UwAm5F7p8cwX498qQ9thp2hZGAO51wdwtfcMINSCFL_Wp5ICPW1Gc",
   },
   {
@@ -265,6 +299,7 @@ We hope that this report will help set the agenda of fairer working conditions f
   {
     date: "May 30, 2020",
     title: "Covid-19 Government Support Measures",
+    author: "Anita Ghazi Rahman",
     excerpt:
       "This overview regarding Covid-19 Government Support Measures is provided by The Legal Circle, the Lex Mundi member firm for Bangladesh.",
     url: "https://interactiveguides.lexmundi.com/lexmundi/covid-19-government-support-measures/bangladesh",
@@ -280,6 +315,7 @@ We hope that this report will help set the agenda of fairer working conditions f
   {
     date: "April 16, 2020",
     title: "Businesses during Covid-19 crisis",
+    author: "Nauriin Ahmed",
     excerpt:
       "Nauriin Ahmed of The Legal Circle discusses ways to deal with rental obligations during Covid-19.",
     url: "https://www.thedailystar.net/law-our-rights/news/address-rental-obligations-during-covid-19-1893538",
@@ -287,6 +323,7 @@ We hope that this report will help set the agenda of fairer working conditions f
   {
     date: "March 30, 2020",
     title: "Workforce reduction during Covid-19: Information for employers",
+    author: "Anita Ghazi Rahman",
     excerpt:
       "A timely article published in The Financial Express on employee severance at the time of Covid-19.",
     url: "https://thefinancialexpress.com.bd/views/workforce-reduction-during-covid-19-information-for-employers-1585582021?fbclid=IwAR06LorEwX7fxIAW1r0KL7OOv9qEDB8SEWWONuSRJ2eHVS-b2p5VvVj02lDw",
@@ -294,6 +331,7 @@ We hope that this report will help set the agenda of fairer working conditions f
   {
     date: "January 7, 2019",
     title: "LexisNexis Company Law Guide 2018-2019",
+    author: "Masud Khan",
     excerpt:
       "The second annual complimentary guide to understanding Company Law practices around the world with an Asia-Pacific focus.",
     url: "https://www.harriskyriakides.law/pdfs/LexisNexis_CompanyLaw-2018.pdf",
@@ -309,6 +347,7 @@ We hope that this report will help set the agenda of fairer working conditions f
   {
     date: "November 1, 2018",
     title: "Bangladesh Style of Citation of Legal Authorities",
+    author: "Nauriin Ahmed",
     excerpt: "Md. Rizwanul Islam, Nauriin Ahmed, and K. Shamsuddin Mahmood wrote on this topic.",
     url: "https://books.thedailystar.net/shop/bangladesh-style-of-citation-of-legal-authorities/",
   },
@@ -322,12 +361,14 @@ We hope that this report will help set the agenda of fairer working conditions f
   {
     date: "March 1, 2017",
     title: "The Employment Law Review - Edition 8",
+    author: "Anita Ghazi Rahman",
     excerpt: "Anita Ghazi Rahman wrote this article.",
     url: "",
   },
   {
     date: "April 1, 2016",
     title: "Bangladesh Section of The International Comparative Guide to: Project Finance 2016",
+    author: "Anita Ghazi Rahman",
     excerpt:
       "Bangladesh Section of The International Comparative Guide to Project Finance 2016 jointly authored by Anita Ghazi Rahman and Karishma Jahan.",
     url: "",
@@ -338,6 +379,7 @@ We hope that this report will help set the agenda of fairer working conditions f
     excerpt:
       "Bangladesh Section of Laws on Telecom and Media 2013 was authored by Anita Ghazi Rahman, Mohibul H. Chowdhoury, and Daniah Khandker.",
     url: "",
+    author: "Anita Ghazi Rahman",
   },
   {
     date: "September 5, 2012",
@@ -345,6 +387,7 @@ We hope that this report will help set the agenda of fairer working conditions f
     excerpt:
       "Anita Ghazi Rahman wrote on MR A J O AND MRS T L V. The Slovak Republic, UNCITRAL Award.",
     url: "",
+    author: "Anita Ghazi Rahman",
   },
   {
     date: "October 11, 2011",
@@ -353,6 +396,7 @@ We hope that this report will help set the agenda of fairer working conditions f
     excerpt:
       "THE TEMPLE OF PREAH VIHEAR - CAMBODIA v. THAILAND - (Decision on the Request of Provisional Measures) was written by Anita Ghazi Rahman.",
     url: "",
+    author: "Anita Ghazi Rahman",
   },
   {
     date: "May 25, 2010",
@@ -360,6 +404,7 @@ We hope that this report will help set the agenda of fairer working conditions f
     excerpt:
       "The article on An easy conversion was written by Anita Ghazi Rahman and published in The Daily Star.",
     url: "https://www.thedailystar.net/news-detail-139870",
+    author: "Anita Ghazi Rahman",
   },
 ];
 

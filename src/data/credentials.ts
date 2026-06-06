@@ -11,3 +11,11 @@ export const credentials: ClientCredential[] = [
     displayName: "Client 1",
   },
 ];
+
+export const tlcCredentials: ClientCredential[] = [
+  {
+    username: "client2",
+    password: "E04GSiV0q9zv7ipPXxLnf&s$",
+    displayName: "TLC Client",
+  },
+];

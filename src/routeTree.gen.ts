@@ -9,6 +9,9 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as TlcLoginRouteImport } from './routes/tlc-login'
+import { Route as TlcDashboardRouteImport } from './routes/tlc-dashboard'
+import { Route as TlcArticlesRouteImport } from './routes/tlc-articles'
 import { Route as RecognitionsRouteImport } from './routes/recognitions'
 import { Route as PracticeAreasRouteImport } from './routes/practice-areas'
 import { Route as OurPeopleRouteImport } from './routes/our-people'
@@ -17,12 +20,32 @@ import { Route as LoginRouteImport } from './routes/login'
 import { Route as LexMundiRouteImport } from './routes/lex-mundi'
 import { Route as InsightsRouteImport } from './routes/insights'
 import { Route as ClientDashboardRouteImport } from './routes/client-dashboard'
+import { Route as ClientArticlesRouteImport } from './routes/client-articles'
 import { Route as CareerRouteImport } from './routes/career'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as TlcArticlesCategoryRouteImport } from './routes/tlc-articles.$category'
 import { Route as OurPeopleSlugRouteImport } from './routes/our-people.$slug'
 import { Route as InsightsSlugRouteImport } from './routes/insights.$slug'
+import { Route as ClientArticlesCategoryRouteImport } from './routes/client-articles.$category'
+import { Route as TlcArticlesCategorySlugRouteImport } from './routes/tlc-articles.$category.$slug'
+import { Route as ClientArticlesCategorySlugRouteImport } from './routes/client-articles.$category.$slug'
 
+const TlcLoginRoute = TlcLoginRouteImport.update({
+  id: '/tlc-login',
+  path: '/tlc-login',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TlcDashboardRoute = TlcDashboardRouteImport.update({
+  id: '/tlc-dashboard',
+  path: '/tlc-dashboard',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TlcArticlesRoute = TlcArticlesRouteImport.update({
+  id: '/tlc-articles',
+  path: '/tlc-articles',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const RecognitionsRoute = RecognitionsRouteImport.update({
   id: '/recognitions',
   path: '/recognitions',
@@ -63,6 +86,11 @@ const ClientDashboardRoute = ClientDashboardRouteImport.update({
   path: '/client-dashboard',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ClientArticlesRoute = ClientArticlesRouteImport.update({
+  id: '/client-articles',
+  path: '/client-articles',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const CareerRoute = CareerRouteImport.update({
   id: '/career',
   path: '/career',
@@ -78,6 +106,11 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const TlcArticlesCategoryRoute = TlcArticlesCategoryRouteImport.update({
+  id: '/$category',
+  path: '/$category',
+  getParentRoute: () => TlcArticlesRoute,
+} as any)
 const OurPeopleSlugRoute = OurPeopleSlugRouteImport.update({
   id: '/$slug',
   path: '/$slug',
@@ -88,11 +121,28 @@ const InsightsSlugRoute = InsightsSlugRouteImport.update({
   path: '/$slug',
   getParentRoute: () => InsightsRoute,
 } as any)
+const ClientArticlesCategoryRoute = ClientArticlesCategoryRouteImport.update({
+  id: '/$category',
+  path: '/$category',
+  getParentRoute: () => ClientArticlesRoute,
+} as any)
+const TlcArticlesCategorySlugRoute = TlcArticlesCategorySlugRouteImport.update({
+  id: '/$slug',
+  path: '/$slug',
+  getParentRoute: () => TlcArticlesCategoryRoute,
+} as any)
+const ClientArticlesCategorySlugRoute =
+  ClientArticlesCategorySlugRouteImport.update({
+    id: '/$slug',
+    path: '/$slug',
+    getParentRoute: () => ClientArticlesCategoryRoute,
+  } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/career': typeof CareerRoute
+  '/client-articles': typeof ClientArticlesRouteWithChildren
   '/client-dashboard': typeof ClientDashboardRoute
   '/insights': typeof InsightsRouteWithChildren
   '/lex-mundi': typeof LexMundiRoute
@@ -101,13 +151,21 @@ export interface FileRoutesByFullPath {
   '/our-people': typeof OurPeopleRouteWithChildren
   '/practice-areas': typeof PracticeAreasRoute
   '/recognitions': typeof RecognitionsRoute
+  '/tlc-articles': typeof TlcArticlesRouteWithChildren
+  '/tlc-dashboard': typeof TlcDashboardRoute
+  '/tlc-login': typeof TlcLoginRoute
+  '/client-articles/$category': typeof ClientArticlesCategoryRouteWithChildren
   '/insights/$slug': typeof InsightsSlugRoute
   '/our-people/$slug': typeof OurPeopleSlugRoute
+  '/tlc-articles/$category': typeof TlcArticlesCategoryRouteWithChildren
+  '/client-articles/$category/$slug': typeof ClientArticlesCategorySlugRoute
+  '/tlc-articles/$category/$slug': typeof TlcArticlesCategorySlugRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/career': typeof CareerRoute
+  '/client-articles': typeof ClientArticlesRouteWithChildren
   '/client-dashboard': typeof ClientDashboardRoute
   '/insights': typeof InsightsRouteWithChildren
   '/lex-mundi': typeof LexMundiRoute
@@ -116,14 +174,22 @@ export interface FileRoutesByTo {
   '/our-people': typeof OurPeopleRouteWithChildren
   '/practice-areas': typeof PracticeAreasRoute
   '/recognitions': typeof RecognitionsRoute
+  '/tlc-articles': typeof TlcArticlesRouteWithChildren
+  '/tlc-dashboard': typeof TlcDashboardRoute
+  '/tlc-login': typeof TlcLoginRoute
+  '/client-articles/$category': typeof ClientArticlesCategoryRouteWithChildren
   '/insights/$slug': typeof InsightsSlugRoute
   '/our-people/$slug': typeof OurPeopleSlugRoute
+  '/tlc-articles/$category': typeof TlcArticlesCategoryRouteWithChildren
+  '/client-articles/$category/$slug': typeof ClientArticlesCategorySlugRoute
+  '/tlc-articles/$category/$slug': typeof TlcArticlesCategorySlugRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/career': typeof CareerRoute
+  '/client-articles': typeof ClientArticlesRouteWithChildren
   '/client-dashboard': typeof ClientDashboardRoute
   '/insights': typeof InsightsRouteWithChildren
   '/lex-mundi': typeof LexMundiRoute
@@ -132,8 +198,15 @@ export interface FileRoutesById {
   '/our-people': typeof OurPeopleRouteWithChildren
   '/practice-areas': typeof PracticeAreasRoute
   '/recognitions': typeof RecognitionsRoute
+  '/tlc-articles': typeof TlcArticlesRouteWithChildren
+  '/tlc-dashboard': typeof TlcDashboardRoute
+  '/tlc-login': typeof TlcLoginRoute
+  '/client-articles/$category': typeof ClientArticlesCategoryRouteWithChildren
   '/insights/$slug': typeof InsightsSlugRoute
   '/our-people/$slug': typeof OurPeopleSlugRoute
+  '/tlc-articles/$category': typeof TlcArticlesCategoryRouteWithChildren
+  '/client-articles/$category/$slug': typeof ClientArticlesCategorySlugRoute
+  '/tlc-articles/$category/$slug': typeof TlcArticlesCategorySlugRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -141,6 +214,7 @@ export interface FileRouteTypes {
     | '/'
     | '/about'
     | '/career'
+    | '/client-articles'
     | '/client-dashboard'
     | '/insights'
     | '/lex-mundi'
@@ -149,13 +223,21 @@ export interface FileRouteTypes {
     | '/our-people'
     | '/practice-areas'
     | '/recognitions'
+    | '/tlc-articles'
+    | '/tlc-dashboard'
+    | '/tlc-login'
+    | '/client-articles/$category'
     | '/insights/$slug'
     | '/our-people/$slug'
+    | '/tlc-articles/$category'
+    | '/client-articles/$category/$slug'
+    | '/tlc-articles/$category/$slug'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
     | '/about'
     | '/career'
+    | '/client-articles'
     | '/client-dashboard'
     | '/insights'
     | '/lex-mundi'
@@ -164,13 +246,21 @@ export interface FileRouteTypes {
     | '/our-people'
     | '/practice-areas'
     | '/recognitions'
+    | '/tlc-articles'
+    | '/tlc-dashboard'
+    | '/tlc-login'
+    | '/client-articles/$category'
     | '/insights/$slug'
     | '/our-people/$slug'
+    | '/tlc-articles/$category'
+    | '/client-articles/$category/$slug'
+    | '/tlc-articles/$category/$slug'
   id:
     | '__root__'
     | '/'
     | '/about'
     | '/career'
+    | '/client-articles'
     | '/client-dashboard'
     | '/insights'
     | '/lex-mundi'
@@ -179,14 +269,22 @@ export interface FileRouteTypes {
     | '/our-people'
     | '/practice-areas'
     | '/recognitions'
+    | '/tlc-articles'
+    | '/tlc-dashboard'
+    | '/tlc-login'
+    | '/client-articles/$category'
     | '/insights/$slug'
     | '/our-people/$slug'
+    | '/tlc-articles/$category'
+    | '/client-articles/$category/$slug'
+    | '/tlc-articles/$category/$slug'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutRoute: typeof AboutRoute
   CareerRoute: typeof CareerRoute
+  ClientArticlesRoute: typeof ClientArticlesRouteWithChildren
   ClientDashboardRoute: typeof ClientDashboardRoute
   InsightsRoute: typeof InsightsRouteWithChildren
   LexMundiRoute: typeof LexMundiRoute
@@ -195,10 +293,34 @@ export interface RootRouteChildren {
   OurPeopleRoute: typeof OurPeopleRouteWithChildren
   PracticeAreasRoute: typeof PracticeAreasRoute
   RecognitionsRoute: typeof RecognitionsRoute
+  TlcArticlesRoute: typeof TlcArticlesRouteWithChildren
+  TlcDashboardRoute: typeof TlcDashboardRoute
+  TlcLoginRoute: typeof TlcLoginRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/tlc-login': {
+      id: '/tlc-login'
+      path: '/tlc-login'
+      fullPath: '/tlc-login'
+      preLoaderRoute: typeof TlcLoginRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/tlc-dashboard': {
+      id: '/tlc-dashboard'
+      path: '/tlc-dashboard'
+      fullPath: '/tlc-dashboard'
+      preLoaderRoute: typeof TlcDashboardRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/tlc-articles': {
+      id: '/tlc-articles'
+      path: '/tlc-articles'
+      fullPath: '/tlc-articles'
+      preLoaderRoute: typeof TlcArticlesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/recognitions': {
       id: '/recognitions'
       path: '/recognitions'
@@ -255,6 +377,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ClientDashboardRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/client-articles': {
+      id: '/client-articles'
+      path: '/client-articles'
+      fullPath: '/client-articles'
+      preLoaderRoute: typeof ClientArticlesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/career': {
       id: '/career'
       path: '/career'
@@ -276,6 +405,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/tlc-articles/$category': {
+      id: '/tlc-articles/$category'
+      path: '/$category'
+      fullPath: '/tlc-articles/$category'
+      preLoaderRoute: typeof TlcArticlesCategoryRouteImport
+      parentRoute: typeof TlcArticlesRoute
+    }
     '/our-people/$slug': {
       id: '/our-people/$slug'
       path: '/$slug'
@@ -290,8 +426,55 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof InsightsSlugRouteImport
       parentRoute: typeof InsightsRoute
     }
+    '/client-articles/$category': {
+      id: '/client-articles/$category'
+      path: '/$category'
+      fullPath: '/client-articles/$category'
+      preLoaderRoute: typeof ClientArticlesCategoryRouteImport
+      parentRoute: typeof ClientArticlesRoute
+    }
+    '/tlc-articles/$category/$slug': {
+      id: '/tlc-articles/$category/$slug'
+      path: '/$slug'
+      fullPath: '/tlc-articles/$category/$slug'
+      preLoaderRoute: typeof TlcArticlesCategorySlugRouteImport
+      parentRoute: typeof TlcArticlesCategoryRoute
+    }
+    '/client-articles/$category/$slug': {
+      id: '/client-articles/$category/$slug'
+      path: '/$slug'
+      fullPath: '/client-articles/$category/$slug'
+      preLoaderRoute: typeof ClientArticlesCategorySlugRouteImport
+      parentRoute: typeof ClientArticlesCategoryRoute
+    }
   }
 }
+
+interface ClientArticlesCategoryRouteChildren {
+  ClientArticlesCategorySlugRoute: typeof ClientArticlesCategorySlugRoute
+}
+
+const ClientArticlesCategoryRouteChildren: ClientArticlesCategoryRouteChildren =
+  {
+    ClientArticlesCategorySlugRoute: ClientArticlesCategorySlugRoute,
+  }
+
+const ClientArticlesCategoryRouteWithChildren =
+  ClientArticlesCategoryRoute._addFileChildren(
+    ClientArticlesCategoryRouteChildren,
+  )
+
+interface ClientArticlesRouteChildren {
+  ClientArticlesCategoryRoute: typeof ClientArticlesCategoryRouteWithChildren
+}
+
+const ClientArticlesRouteChildren: ClientArticlesRouteChildren = {
+  ClientArticlesCategoryRoute: ClientArticlesCategoryRouteWithChildren,
+}
+
+const ClientArticlesRouteWithChildren = ClientArticlesRoute._addFileChildren(
+  ClientArticlesRouteChildren,
+)
 
 interface InsightsRouteChildren {
   InsightsSlugRoute: typeof InsightsSlugRoute
@@ -317,10 +500,34 @@ const OurPeopleRouteWithChildren = OurPeopleRoute._addFileChildren(
   OurPeopleRouteChildren,
 )
 
+interface TlcArticlesCategoryRouteChildren {
+  TlcArticlesCategorySlugRoute: typeof TlcArticlesCategorySlugRoute
+}
+
+const TlcArticlesCategoryRouteChildren: TlcArticlesCategoryRouteChildren = {
+  TlcArticlesCategorySlugRoute: TlcArticlesCategorySlugRoute,
+}
+
+const TlcArticlesCategoryRouteWithChildren =
+  TlcArticlesCategoryRoute._addFileChildren(TlcArticlesCategoryRouteChildren)
+
+interface TlcArticlesRouteChildren {
+  TlcArticlesCategoryRoute: typeof TlcArticlesCategoryRouteWithChildren
+}
+
+const TlcArticlesRouteChildren: TlcArticlesRouteChildren = {
+  TlcArticlesCategoryRoute: TlcArticlesCategoryRouteWithChildren,
+}
+
+const TlcArticlesRouteWithChildren = TlcArticlesRoute._addFileChildren(
+  TlcArticlesRouteChildren,
+)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
   CareerRoute: CareerRoute,
+  ClientArticlesRoute: ClientArticlesRouteWithChildren,
   ClientDashboardRoute: ClientDashboardRoute,
   InsightsRoute: InsightsRouteWithChildren,
   LexMundiRoute: LexMundiRoute,
@@ -329,6 +536,9 @@ const rootRouteChildren: RootRouteChildren = {
   OurPeopleRoute: OurPeopleRouteWithChildren,
   PracticeAreasRoute: PracticeAreasRoute,
   RecognitionsRoute: RecognitionsRoute,
+  TlcArticlesRoute: TlcArticlesRouteWithChildren,
+  TlcDashboardRoute: TlcDashboardRoute,
+  TlcLoginRoute: TlcLoginRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
