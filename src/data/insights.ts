@@ -16,6 +16,13 @@ function slugify(title: string): string {
 
 const rawPosts = [
   {
+    date: "June 11, 2026",
+    title: "Sole Proprietorship in Bangladesh: Is It a Risky Proposition?",
+    author: "Anita Ghazi Rahman",
+    excerpt: "To read the full article, Click here.",
+    url: "https://thefinancialexpress.com.bd/views/views/sole-proprietorship-in-bangladesh-is-it-a-risky-proposition",
+  },
+  {
     date: "May 13, 2026",
     title:
       "Asian Legal Insights - Bangladesh Special Edition Part.1 (May 2026) - Framework for Foreign Investment in Bangladesh",

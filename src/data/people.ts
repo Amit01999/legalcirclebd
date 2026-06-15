@@ -346,6 +346,12 @@ const nauriinAhmed: Person = {
         "Technology, Media & Telecommunication (TMT)",
       ],
     },
+    {
+      title: "Publications",
+      items: [
+        "\"The Rules Have Changed: Bangladesh's 2025-2026 Labour Law Reforms and What It Means for Businesses\" — Mondaq, https://www.mondaq.com/employee-benefits-compensation/1800374/the-rules-have-changed-bangladeshs-2025-2026-labour-law-reforms-and-what-it-means-for-businesses",
+      ],
+    },
   ],
 };
 
