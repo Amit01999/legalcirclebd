@@ -1,6 +1,7 @@
 ﻿import abrarHasnineImage from "@/assets/peoples/Abrar-Hasnain--scaled.jpg";
 import anitaGhaziRahmanImage from "@/assets/peoples/Anita-Ghazi-Rahman--scaled.jpg";
 import eshrakEMoazzamImage from "@/assets/peoples/Eshrak-E-Moazzam.jpg";
+import fahadIbneAwalImage from "@/assets/peoples/Fahad Ibne Awal.jpg";
 import gaziMdRokibBinHossainImage from "@/assets/peoples/Gazi-Md.-Rokib-Bin-Hossain-scaled.jpg";
 import jarifAhmedImage from "@/assets/peoples/Jarif-Ahmed-scaled.jpg";
 import masudKhanImage from "@/assets/peoples/masudkhan.jpg";
@@ -822,6 +823,23 @@ const eshrakEMoazzam: Person = {
   ],
 };
 
+const fahadIbneAwal: Person = {
+  name: "Fahad Ibne Awal",
+  slug: "fahad-ibne-awal",
+  role: "Associate",
+  initials: "FA",
+  image: fahadIbneAwalImage,
+  qualifications: [
+    "LLB, Newcastle University",
+    "LLM, City University of London",
+    "Barrister-at-Law, Hon'ble Society of Lincoln's Inn",
+  ],
+  bio: [
+    "Fahad Ibne Awal has a Bachelor of Laws degree from Newcastle University UK and has a Master of Laws (LL.M) degree specialising in Corporate Governance, International Taxation, Intellectual Property Law and International Commercial Law from City, University of London. He then completed the Bar Professional Training Course from City, University of London and joined The Legal Circle immediately after completing his studies in the UK.",
+    "He has attained considerable experience, and his legal practice includes negotiating contracts, incorporation of companies (foreign and national), analysing legal issues relating to various company matters, advising and guiding foreign investments, advising and guiding NGOs, matters related to human resource, employment and labour issues, contractual disputes and preparing company due diligence reports. He holds substantial interests in litigation and has assisted his senior in a few cases.",
+  ],
+};
+
 const mdMoyenUddinShakil: Person = {
   name: "MD. Moyen Uddin (Shakil)",
   slug: "md-moyen-uddin-shakil",
@@ -895,7 +913,7 @@ export const people: Record<PeopleTab, Person[]> = {
   Partners: [anitaGhaziRahman, gaziMdRokibBinHossain, sameeraMahmud, pushpoRahman, nauriinAhmed],
   "Of Counsel": [jarifAhmedRumman, masudKhan],
   "Senior Associates": [abrarHasnineRifat, taahsinaRaisaRabbi, nafiulAlamShupto],
-  Associates: [umerAimanKhan, eshrakEMoazzam],
+  Associates: [umerAimanKhan, eshrakEMoazzam, fahadIbneAwal],
   Paralegal: [mdMoyenUddinShakil, kutubulAlomSohel, mahmudulHasanRabiul],
 };
 
