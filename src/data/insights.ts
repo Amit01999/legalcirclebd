@@ -16,6 +16,13 @@ function slugify(title: string): string {
 
 const rawPosts = [
   {
+    date: "July 4, 2026",
+    title: "Bangladesh Personal Data Protection Act, 2026",
+    author: "Anita Ghazi Rahman",
+    excerpt: "Bangladesh now has a data protection law. To read the full article, Click here.",
+    url: "https://www.linkedin.com/pulse/bangladesh-personal-data-protection-act-2026-anita-ghazi-rahman-bidhc/",
+  },
+  {
     date: "June 11, 2026",
     title: "Sole Proprietorship in Bangladesh: Is It a Risky Proposition?",
     author: "Anita Ghazi Rahman",
