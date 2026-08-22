@@ -1,22 +1,10 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { headFor } from "@/lib/seo";
 import { PageHero, SectionHeading } from "@/components/Section";
 import heroBuilding from "@/assets/hero-building.jpg";
 
 export const Route = createFileRoute("/media-coverage")({
-  head: () => ({
-    meta: [
-      { title: "Media Coverage - The Legal Circle" },
-      {
-        name: "description",
-        content: "Media coverage and updates from The Legal Circle.",
-      },
-      { property: "og:title", content: "Media Coverage - The Legal Circle" },
-      {
-        property: "og:description",
-        content: "Selected media coverage and public updates from The Legal Circle.",
-      },
-    ],
-  }),
+  head: () => headFor("/media-coverage"),
   component: MediaCoveragePage,
 });
 

@@ -1,14 +1,10 @@
 import { createFileRoute, Link, redirect } from "@tanstack/react-router";
+import { headFor } from "@/lib/seo";
 import { isAuthenticated, getSession } from "@/lib/auth";
 import { practiceAreaCategories, industryCategories } from "@/data/client-articles";
 
 export const Route = createFileRoute("/client-dashboard")({
-  head: () => ({
-    meta: [
-      { title: "Client Dashboard — The Legal Circle" },
-      { name: "robots", content: "noindex" },
-    ],
-  }),
+  head: () => headFor("/client-dashboard"),
   beforeLoad: () => {
     if (!isAuthenticated()) {
       throw redirect({ to: "/login" });

@@ -11,6 +11,7 @@ import {
   UserRound,
 } from "lucide-react";
 import { getPostBySlug, getRelatedPosts, posts } from "@/data/insights";
+import { insightSeo, metaFor } from "@/lib/seo";
 
 export const Route = createFileRoute("/insights/$slug")({
   loader: ({ params }) => {
@@ -22,14 +23,7 @@ export const Route = createFileRoute("/insights/$slug")({
     const related = getRelatedPosts(params.slug, 3);
     return { post, prev, next, related };
   },
-  head: ({ loaderData }) => ({
-    meta: [
-      { title: `${loaderData?.post.title} \u2014 The Legal Circle` },
-      { name: "description", content: loaderData?.post.excerpt.slice(0, 160) },
-      { property: "og:title", content: loaderData?.post.title },
-      { property: "og:description", content: loaderData?.post.excerpt.slice(0, 160) },
-    ],
-  }),
+  head: ({ loaderData }) => (loaderData ? { meta: metaFor(insightSeo(loaderData.post)) } : {}),
   component: InsightDetailPage,
 });
 

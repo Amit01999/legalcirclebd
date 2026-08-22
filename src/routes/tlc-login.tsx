@@ -1,18 +1,12 @@
 import { createFileRoute, redirect, useNavigate } from "@tanstack/react-router";
+import { headFor } from "@/lib/seo";
 import { useState } from "react";
 import { AlertCircle, ArrowRight, LockKeyhole, ShieldCheck, UserRound } from "lucide-react";
 import heroBooks from "@/assets/hero-books.jpg";
 import { tlcLogin, isTlcAuthenticated } from "@/lib/auth";
 
 export const Route = createFileRoute("/tlc-login")({
-  head: () => ({
-    meta: [
-      { title: "TLC Engaged Login \u2014 The Legal Circle" },
-      { name: "description", content: "TLC Engaged client portal login for The Legal Circle." },
-      { property: "og:title", content: "TLC Engaged Login \u2014 The Legal Circle" },
-      { property: "og:description", content: "TLC Engaged client portal access." },
-    ],
-  }),
+  head: () => headFor("/tlc-login"),
   beforeLoad: () => {
     if (isTlcAuthenticated()) {
       throw redirect({ to: "/tlc-dashboard" });

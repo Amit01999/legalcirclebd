@@ -1,18 +1,12 @@
 import { createFileRoute, redirect, useNavigate } from "@tanstack/react-router";
+import { headFor } from "@/lib/seo";
 import { useState } from "react";
 import { AlertCircle, ArrowRight, LockKeyhole, ShieldCheck, UserRound } from "lucide-react";
 import heroBooks from "@/assets/hero-books.jpg";
 import { login, isAuthenticated } from "@/lib/auth";
 
 export const Route = createFileRoute("/login")({
-  head: () => ({
-    meta: [
-      { title: "Login \u2014 The Legal Circle" },
-      { name: "description", content: "Client portal login for The Legal Circle." },
-      { property: "og:title", content: "Login \u2014 The Legal Circle" },
-      { property: "og:description", content: "Client portal access." },
-    ],
-  }),
+  head: () => headFor("/login"),
   beforeLoad: () => {
     if (isAuthenticated()) {
       throw redirect({ to: "/client-dashboard" });

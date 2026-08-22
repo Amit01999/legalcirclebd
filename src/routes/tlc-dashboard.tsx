@@ -1,14 +1,10 @@
 import { createFileRoute, Link, redirect } from "@tanstack/react-router";
+import { headFor } from "@/lib/seo";
 import { isTlcAuthenticated, getTlcSession } from "@/lib/auth";
 import { tlcPracticeAreaCategories, tlcIndustryCategories } from "@/data/tlc-articles";
 
 export const Route = createFileRoute("/tlc-dashboard")({
-  head: () => ({
-    meta: [
-      { title: "TLC Engaged Dashboard — The Legal Circle" },
-      { name: "robots", content: "noindex" },
-    ],
-  }),
+  head: () => headFor("/tlc-dashboard"),
   beforeLoad: () => {
     if (!isTlcAuthenticated()) {
       throw redirect({ to: "/tlc-login" });

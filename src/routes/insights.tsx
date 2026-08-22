@@ -1,20 +1,11 @@
 import { createFileRoute, Link, Outlet, useRouterState } from "@tanstack/react-router";
+import { headFor } from "@/lib/seo";
 import { PageHero } from "@/components/Section";
 import heroBuilding from "@/assets/hero-building.jpg";
 import { posts } from "@/data/insights";
 
 export const Route = createFileRoute("/insights")({
-  head: () => ({
-    meta: [
-      { title: "Insights — The Legal Circle" },
-      {
-        name: "description",
-        content: "Legal insights, articles and analyses from The Legal Circle.",
-      },
-      { property: "og:title", content: "Insights — The Legal Circle" },
-      { property: "og:description", content: "Articles, updates and legal analyses." },
-    ],
-  }),
+  head: () => headFor("/insights"),
   component: Insights,
 });
 

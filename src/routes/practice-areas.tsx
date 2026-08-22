@@ -1,17 +1,11 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { headFor } from "@/lib/seo";
 import { PageHero } from "@/components/Section";
 import { Building2, Home, Shield, Briefcase, Users, Scale, Bike, Film, UserCheck, Plug, Car, DollarSign } from "lucide-react";
 import heroBuilding from "@/assets/hero-building.jpg";
 
 export const Route = createFileRoute("/practice-areas")({
-  head: () => ({
-    meta: [
-      { title: "Practice Areas — The Legal Circle" },
-      { name: "description", content: "Our practice areas include Banking, Corporate, Disputes, IP, Real Estate, Tax and more." },
-      { property: "og:title", content: "Practice Areas — The Legal Circle" },
-      { property: "og:description", content: "Comprehensive legal services across all major practice areas." },
-    ],
-  }),
+  head: () => headFor("/practice-areas"),
   component: PracticeAreasPage,
 });
 

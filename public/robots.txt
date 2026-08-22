@@ -1,0 +1,16 @@
+User-agent: *
+Allow: /
+
+# Authenticated client-portal areas. Nothing here is public, and the content is
+# unreachable without a session, so crawling it only wastes crawl budget.
+Disallow: /client-dashboard
+Disallow: /client-articles
+Disallow: /tlc-dashboard
+Disallow: /tlc-articles
+
+# /login and /tlc-login are intentionally NOT disallowed. They carry a
+# "noindex" robots meta tag instead, which Google can only act on if it is
+# allowed to fetch the page. Blocking them here would leave them indexable
+# via inbound links with no way to drop them.
+
+Sitemap: https://www.legalcirclebd.com/sitemap.xml

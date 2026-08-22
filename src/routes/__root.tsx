@@ -7,6 +7,7 @@ import {
 } from "@tanstack/react-router";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
+import { HeadSync } from "@/components/HeadSync";
 
 function NotFoundComponent() {
   return (
@@ -54,6 +55,7 @@ function RootComponent() {
   const { queryClient } = Route.useRouteContext();
   return (
     <QueryClientProvider client={queryClient}>
+      <HeadSync />
       <div className="flex min-h-screen flex-col">
         <Header />
         <main className="flex-1"><Outlet /></main>

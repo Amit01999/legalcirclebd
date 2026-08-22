@@ -1,4 +1,5 @@
 import { Link, Outlet, createFileRoute, useRouterState } from "@tanstack/react-router";
+import { headFor } from "@/lib/seo";
 import { useEffect, useState } from "react";
 import { Mail } from "lucide-react";
 import { PageHero } from "@/components/Section";
@@ -6,17 +7,7 @@ import { people, peopleTabHashes, peopleTabs, type PeopleTab } from "@/data/peop
 import heroBuilding from "@/assets/hero-building.jpg";
 
 export const Route = createFileRoute("/our-people")({
-  head: () => ({
-    meta: [
-      { title: "Our People — The Legal Circle" },
-      {
-        name: "description",
-        content: "Meet the partners, counsel and associates at The Legal Circle.",
-      },
-      { property: "og:title", content: "Our People — The Legal Circle" },
-      { property: "og:description", content: "Our team of barristers, advocates and consultants." },
-    ],
-  }),
+  head: () => headFor("/our-people"),
   component: OurPeoplePage,
 });
 

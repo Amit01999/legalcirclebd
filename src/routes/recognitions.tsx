@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { createFileRoute } from "@tanstack/react-router";
+import { headFor } from "@/lib/seo";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { PageHero, SectionHeading } from "@/components/Section";
 import recognitionImage from "@/assets/Legal-Circle-New-Slide-2.png";
@@ -18,20 +19,7 @@ const recognitionSlides = [
 ];
 
 export const Route = createFileRoute("/recognitions")({
-  head: () => ({
-    meta: [
-      { title: "Recognitions — The Legal Circle" },
-      {
-        name: "description",
-        content: "Recognitions and rankings received by The Legal Circle.",
-      },
-      { property: "og:title", content: "Recognitions — The Legal Circle" },
-      {
-        property: "og:description",
-        content: "Selected recognitions, rankings and awards for The Legal Circle.",
-      },
-    ],
-  }),
+  head: () => headFor("/recognitions"),
   component: RecognitionsPage,
 });
 

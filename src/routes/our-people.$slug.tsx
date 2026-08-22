@@ -7,6 +7,7 @@ import {
   type TextRun,
   type BioParagraph,
 } from "@/data/people";
+import { metaFor, personSeo } from "@/lib/seo";
 import heroBuilding from "@/assets/hero-building.jpg";
 
 function WhatsAppIcon() {
@@ -35,21 +36,7 @@ export const Route = createFileRoute("/our-people/$slug")({
 
     return { person };
   },
-  head: ({ loaderData }) => {
-    const person = loaderData?.person;
-
-    return {
-      meta: [
-        { title: `${person?.name ?? "Person"} - The Legal Circle` },
-        {
-          name: "description",
-          content: `${person?.name ?? ""}${person?.role ? `, ${person.role}` : ""}`,
-        },
-        { property: "og:title", content: `${person?.name ?? "Person"} - The Legal Circle` },
-        { property: "og:description", content: person?.role ?? "" },
-      ],
-    };
-  },
+  head: ({ loaderData }) => (loaderData ? { meta: metaFor(personSeo(loaderData.person)) } : {}),
   component: PersonDetailPage,
 });
 

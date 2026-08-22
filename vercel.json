@@ -1,5 +1,1173 @@
 {
+  "trailingSlash": false,
+  "redirects": [
+    {
+      "source": "/about-us",
+      "destination": "/about",
+      "permanent": true
+    },
+    {
+      "source": "/about-us/",
+      "destination": "/about",
+      "permanent": true
+    },
+    {
+      "source": "/the-firm",
+      "destination": "/about",
+      "permanent": true
+    },
+    {
+      "source": "/the-firm/",
+      "destination": "/about",
+      "permanent": true
+    },
+    {
+      "source": "/practice-area",
+      "destination": "/practice-areas",
+      "permanent": true
+    },
+    {
+      "source": "/practice-area/",
+      "destination": "/practice-areas",
+      "permanent": true
+    },
+    {
+      "source": "/our-services",
+      "destination": "/practice-areas",
+      "permanent": true
+    },
+    {
+      "source": "/our-services/",
+      "destination": "/practice-areas",
+      "permanent": true
+    },
+    {
+      "source": "/our-people-2",
+      "destination": "/our-people",
+      "permanent": true
+    },
+    {
+      "source": "/our-people-2/",
+      "destination": "/our-people",
+      "permanent": true
+    },
+    {
+      "source": "/our-people-2-2",
+      "destination": "/our-people",
+      "permanent": true
+    },
+    {
+      "source": "/our-people-2-2/",
+      "destination": "/our-people",
+      "permanent": true
+    },
+    {
+      "source": "/lawyers",
+      "destination": "/our-people",
+      "permanent": true
+    },
+    {
+      "source": "/lawyers/",
+      "destination": "/our-people",
+      "permanent": true
+    },
+    {
+      "source": "/people",
+      "destination": "/our-people",
+      "permanent": true
+    },
+    {
+      "source": "/people/",
+      "destination": "/our-people",
+      "permanent": true
+    },
+    {
+      "source": "/partners",
+      "destination": "/our-people#partners",
+      "permanent": true
+    },
+    {
+      "source": "/partners/",
+      "destination": "/our-people#partners",
+      "permanent": true
+    },
+    {
+      "source": "/blog",
+      "destination": "/insights",
+      "permanent": true
+    },
+    {
+      "source": "/blog/",
+      "destination": "/insights",
+      "permanent": true
+    },
+    {
+      "source": "/publications",
+      "destination": "/insights",
+      "permanent": true
+    },
+    {
+      "source": "/publications/",
+      "destination": "/insights",
+      "permanent": true
+    },
+    {
+      "source": "/publication",
+      "destination": "/insights",
+      "permanent": true
+    },
+    {
+      "source": "/publication/",
+      "destination": "/insights",
+      "permanent": true
+    },
+    {
+      "source": "/our-publications",
+      "destination": "/insights",
+      "permanent": true
+    },
+    {
+      "source": "/our-publications/",
+      "destination": "/insights",
+      "permanent": true
+    },
+    {
+      "source": "/latest-posts",
+      "destination": "/insights",
+      "permanent": true
+    },
+    {
+      "source": "/latest-posts/",
+      "destination": "/insights",
+      "permanent": true
+    },
+    {
+      "source": "/recognition",
+      "destination": "/recognitions",
+      "permanent": true
+    },
+    {
+      "source": "/recognition/",
+      "destination": "/recognitions",
+      "permanent": true
+    },
+    {
+      "source": "/news-media",
+      "destination": "/media-coverage",
+      "permanent": true
+    },
+    {
+      "source": "/news-media/",
+      "destination": "/media-coverage",
+      "permanent": true
+    },
+    {
+      "source": "/lex-mundi-the-legal-circle",
+      "destination": "/lex-mundi",
+      "permanent": true
+    },
+    {
+      "source": "/lex-mundi-the-legal-circle/",
+      "destination": "/lex-mundi",
+      "permanent": true
+    },
+    {
+      "source": "/career-opportunity",
+      "destination": "/career",
+      "permanent": true
+    },
+    {
+      "source": "/career-opportunity/",
+      "destination": "/career",
+      "permanent": true
+    },
+    {
+      "source": "/homepage",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/homepage/",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/our-clients",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/our-clients/",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/clients",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/clients/",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/anita-ghazi",
+      "destination": "/our-people/anita-ghazi-rahman",
+      "permanent": true
+    },
+    {
+      "source": "/anita-ghazi/",
+      "destination": "/our-people/anita-ghazi-rahman",
+      "permanent": true
+    },
+    {
+      "source": "/gazi-rokib",
+      "destination": "/our-people/gazi-md-rokib-bin-hossain",
+      "permanent": true
+    },
+    {
+      "source": "/gazi-rokib/",
+      "destination": "/our-people/gazi-md-rokib-bin-hossain",
+      "permanent": true
+    },
+    {
+      "source": "/sameera-mahmud",
+      "destination": "/our-people/sameera-mahmud",
+      "permanent": true
+    },
+    {
+      "source": "/sameera-mahmud/",
+      "destination": "/our-people/sameera-mahmud",
+      "permanent": true
+    },
+    {
+      "source": "/sameera-m-reza",
+      "destination": "/our-people/sameera-mahmud",
+      "permanent": true
+    },
+    {
+      "source": "/sameera-m-reza/",
+      "destination": "/our-people/sameera-mahmud",
+      "permanent": true
+    },
+    {
+      "source": "/pushpo-rahman",
+      "destination": "/our-people/pushpo-rahman",
+      "permanent": true
+    },
+    {
+      "source": "/pushpo-rahman/",
+      "destination": "/our-people/pushpo-rahman",
+      "permanent": true
+    },
+    {
+      "source": "/nauriin-ahmed",
+      "destination": "/our-people/nauriin-ahmed",
+      "permanent": true
+    },
+    {
+      "source": "/nauriin-ahmed/",
+      "destination": "/our-people/nauriin-ahmed",
+      "permanent": true
+    },
+    {
+      "source": "/jarif-ahmed",
+      "destination": "/our-people/jarif-ahmed-rumman",
+      "permanent": true
+    },
+    {
+      "source": "/jarif-ahmed/",
+      "destination": "/our-people/jarif-ahmed-rumman",
+      "permanent": true
+    },
+    {
+      "source": "/masud-khan",
+      "destination": "/our-people/masud-khan",
+      "permanent": true
+    },
+    {
+      "source": "/masud-khan/",
+      "destination": "/our-people/masud-khan",
+      "permanent": true
+    },
+    {
+      "source": "/abrar-hasnine",
+      "destination": "/our-people/abrar-hasnine-rifat",
+      "permanent": true
+    },
+    {
+      "source": "/abrar-hasnine/",
+      "destination": "/our-people/abrar-hasnine-rifat",
+      "permanent": true
+    },
+    {
+      "source": "/taahsina-raisa",
+      "destination": "/our-people/taahsina-raisa-rabbi",
+      "permanent": true
+    },
+    {
+      "source": "/taahsina-raisa/",
+      "destination": "/our-people/taahsina-raisa-rabbi",
+      "permanent": true
+    },
+    {
+      "source": "/taahsina-raisar",
+      "destination": "/our-people/taahsina-raisa-rabbi",
+      "permanent": true
+    },
+    {
+      "source": "/taahsina-raisar/",
+      "destination": "/our-people/taahsina-raisa-rabbi",
+      "permanent": true
+    },
+    {
+      "source": "/nafiul-alam-shupto",
+      "destination": "/our-people/nafiul-alam-shupto",
+      "permanent": true
+    },
+    {
+      "source": "/nafiul-alam-shupto/",
+      "destination": "/our-people/nafiul-alam-shupto",
+      "permanent": true
+    },
+    {
+      "source": "/nafiul-alam-shupto-2",
+      "destination": "/our-people/nafiul-alam-shupto",
+      "permanent": true
+    },
+    {
+      "source": "/nafiul-alam-shupto-2/",
+      "destination": "/our-people/nafiul-alam-shupto",
+      "permanent": true
+    },
+    {
+      "source": "/umer-aiman",
+      "destination": "/our-people/umer-aiman-khan",
+      "permanent": true
+    },
+    {
+      "source": "/umer-aiman/",
+      "destination": "/our-people/umer-aiman-khan",
+      "permanent": true
+    },
+    {
+      "source": "/eshrak-e-moazzam",
+      "destination": "/our-people/eshrak-e-moazzam",
+      "permanent": true
+    },
+    {
+      "source": "/eshrak-e-moazzam/",
+      "destination": "/our-people/eshrak-e-moazzam",
+      "permanent": true
+    },
+    {
+      "source": "/fahad-ibne-awal",
+      "destination": "/our-people/fahad-ibne-awal",
+      "permanent": true
+    },
+    {
+      "source": "/fahad-ibne-awal/",
+      "destination": "/our-people/fahad-ibne-awal",
+      "permanent": true
+    },
+    {
+      "source": "/shakil",
+      "destination": "/our-people/md-moyen-uddin-shakil",
+      "permanent": true
+    },
+    {
+      "source": "/shakil/",
+      "destination": "/our-people/md-moyen-uddin-shakil",
+      "permanent": true
+    },
+    {
+      "source": "/shohel",
+      "destination": "/our-people/kutubul-alom-sohel",
+      "permanent": true
+    },
+    {
+      "source": "/shohel/",
+      "destination": "/our-people/kutubul-alom-sohel",
+      "permanent": true
+    },
+    {
+      "source": "/rabiul",
+      "destination": "/our-people/mahmudul-hasan-rabiul",
+      "permanent": true
+    },
+    {
+      "source": "/rabiul/",
+      "destination": "/our-people/mahmudul-hasan-rabiul",
+      "permanent": true
+    },
+    {
+      "source": "/people/anitaghazirahman",
+      "destination": "/our-people/anita-ghazi-rahman",
+      "permanent": true
+    },
+    {
+      "source": "/people/anitaghazirahman/",
+      "destination": "/our-people/anita-ghazi-rahman",
+      "permanent": true
+    },
+    {
+      "source": "/people/anita-ghazi-rahman",
+      "destination": "/our-people/anita-ghazi-rahman",
+      "permanent": true
+    },
+    {
+      "source": "/people/anita-ghazi-rahman/",
+      "destination": "/our-people/anita-ghazi-rahman",
+      "permanent": true
+    },
+    {
+      "source": "/people/gazibinrokibhasan",
+      "destination": "/our-people/gazi-md-rokib-bin-hossain",
+      "permanent": true
+    },
+    {
+      "source": "/people/gazibinrokibhasan/",
+      "destination": "/our-people/gazi-md-rokib-bin-hossain",
+      "permanent": true
+    },
+    {
+      "source": "/people/sameeramahmudreza",
+      "destination": "/our-people/sameera-mahmud",
+      "permanent": true
+    },
+    {
+      "source": "/people/sameeramahmudreza/",
+      "destination": "/our-people/sameera-mahmud",
+      "permanent": true
+    },
+    {
+      "source": "/people/sameera-mahmud-reza",
+      "destination": "/our-people/sameera-mahmud",
+      "permanent": true
+    },
+    {
+      "source": "/people/sameera-mahmud-reza/",
+      "destination": "/our-people/sameera-mahmud",
+      "permanent": true
+    },
+    {
+      "source": "/people/pushporahman",
+      "destination": "/our-people/pushpo-rahman",
+      "permanent": true
+    },
+    {
+      "source": "/people/pushporahman/",
+      "destination": "/our-people/pushpo-rahman",
+      "permanent": true
+    },
+    {
+      "source": "/people/nauriinahmed",
+      "destination": "/our-people/nauriin-ahmed",
+      "permanent": true
+    },
+    {
+      "source": "/people/nauriinahmed/",
+      "destination": "/our-people/nauriin-ahmed",
+      "permanent": true
+    },
+    {
+      "source": "/people/jarifahmedrumman",
+      "destination": "/our-people/jarif-ahmed-rumman",
+      "permanent": true
+    },
+    {
+      "source": "/people/jarifahmedrumman/",
+      "destination": "/our-people/jarif-ahmed-rumman",
+      "permanent": true
+    },
+    {
+      "source": "/people/jarif-ahmed",
+      "destination": "/our-people/jarif-ahmed-rumman",
+      "permanent": true
+    },
+    {
+      "source": "/people/jarif-ahmed/",
+      "destination": "/our-people/jarif-ahmed-rumman",
+      "permanent": true
+    },
+    {
+      "source": "/people/masudkhan",
+      "destination": "/our-people/masud-khan",
+      "permanent": true
+    },
+    {
+      "source": "/people/masudkhan/",
+      "destination": "/our-people/masud-khan",
+      "permanent": true
+    },
+    {
+      "source": "/people/masud-khan",
+      "destination": "/our-people/masud-khan",
+      "permanent": true
+    },
+    {
+      "source": "/people/masud-khan/",
+      "destination": "/our-people/masud-khan",
+      "permanent": true
+    },
+    {
+      "source": "/people/abrarhasnine",
+      "destination": "/our-people/abrar-hasnine-rifat",
+      "permanent": true
+    },
+    {
+      "source": "/people/abrarhasnine/",
+      "destination": "/our-people/abrar-hasnine-rifat",
+      "permanent": true
+    },
+    {
+      "source": "/people/abrar-hasnine",
+      "destination": "/our-people/abrar-hasnine-rifat",
+      "permanent": true
+    },
+    {
+      "source": "/people/abrar-hasnine/",
+      "destination": "/our-people/abrar-hasnine-rifat",
+      "permanent": true
+    },
+    {
+      "source": "/people/taahsinaraisa",
+      "destination": "/our-people/taahsina-raisa-rabbi",
+      "permanent": true
+    },
+    {
+      "source": "/people/taahsinaraisa/",
+      "destination": "/our-people/taahsina-raisa-rabbi",
+      "permanent": true
+    },
+    {
+      "source": "/people/umeraimankhan",
+      "destination": "/our-people/umer-aiman-khan",
+      "permanent": true
+    },
+    {
+      "source": "/people/umeraimankhan/",
+      "destination": "/our-people/umer-aiman-khan",
+      "permanent": true
+    },
+    {
+      "source": "/dt_team/anita-ghazi-rahman-islam",
+      "destination": "/our-people/anita-ghazi-rahman",
+      "permanent": true
+    },
+    {
+      "source": "/dt_team/anita-ghazi-rahman-islam/",
+      "destination": "/our-people/anita-ghazi-rahman",
+      "permanent": true
+    },
+    {
+      "source": "/project/anita-ghazi-rahman",
+      "destination": "/our-people/anita-ghazi-rahman",
+      "permanent": true
+    },
+    {
+      "source": "/project/anita-ghazi-rahman/",
+      "destination": "/our-people/anita-ghazi-rahman",
+      "permanent": true
+    },
+    {
+      "source": "/project/masud-khan",
+      "destination": "/our-people/masud-khan",
+      "permanent": true
+    },
+    {
+      "source": "/project/masud-khan/",
+      "destination": "/our-people/masud-khan",
+      "permanent": true
+    },
+    {
+      "source": "/understanding-preference-shares-in-practice",
+      "destination": "/insights/understanding-preference-shares-in-practice",
+      "permanent": true
+    },
+    {
+      "source": "/understanding-preference-shares-in-practice/",
+      "destination": "/insights/understanding-preference-shares-in-practice",
+      "permanent": true
+    },
+    {
+      "source": "/bangladesh-chapter-on-global-legal-insights",
+      "destination": "/insights/bangladesh-chapter-on-global-legal-insights",
+      "permanent": true
+    },
+    {
+      "source": "/bangladesh-chapter-on-global-legal-insights/",
+      "destination": "/insights/bangladesh-chapter-on-global-legal-insights",
+      "permanent": true
+    },
+    {
+      "source": "/data-digitalisation-and-public-welfare-post-covid-19",
+      "destination": "/insights/data-digitalisation-and-public-welfare-post-covid-19",
+      "permanent": true
+    },
+    {
+      "source": "/data-digitalisation-and-public-welfare-post-covid-19/",
+      "destination": "/insights/data-digitalisation-and-public-welfare-post-covid-19",
+      "permanent": true
+    },
+    {
+      "source": "/businesses-during-covid-19-crisis",
+      "destination": "/insights/businesses-during-covid-19-crisis",
+      "permanent": true
+    },
+    {
+      "source": "/businesses-during-covid-19-crisis/",
+      "destination": "/insights/businesses-during-covid-19-crisis",
+      "permanent": true
+    },
+    {
+      "source": "/festival-bonus-amid-covid-19",
+      "destination": "/insights/festival-bonus-amid-covid-19",
+      "permanent": true
+    },
+    {
+      "source": "/festival-bonus-amid-covid-19/",
+      "destination": "/insights/festival-bonus-amid-covid-19",
+      "permanent": true
+    },
+    {
+      "source": "/returning-to-work-during-covid-19",
+      "destination": "/insights/returning-to-work-during-covid-19",
+      "permanent": true
+    },
+    {
+      "source": "/returning-to-work-during-covid-19/",
+      "destination": "/insights/returning-to-work-during-covid-19",
+      "permanent": true
+    },
+    {
+      "source": "/easing-repatriation-of-proceeds-from-share-sale",
+      "destination": "/insights/easing-repatriation-of-proceeds-from-share-sale",
+      "permanent": true
+    },
+    {
+      "source": "/easing-repatriation-of-proceeds-from-share-sale/",
+      "destination": "/insights/easing-repatriation-of-proceeds-from-share-sale",
+      "permanent": true
+    },
+    {
+      "source": "/digitising-the-ngo-affairs-bureau",
+      "destination": "/insights/digitising-the-ngo-affairs-bureau",
+      "permanent": true
+    },
+    {
+      "source": "/digitising-the-ngo-affairs-bureau/",
+      "destination": "/insights/digitising-the-ngo-affairs-bureau",
+      "permanent": true
+    },
+    {
+      "source": "/data-privacy-and-e-commerce",
+      "destination": "/insights/data-privacy-and-e-commerce",
+      "permanent": true
+    },
+    {
+      "source": "/data-privacy-and-e-commerce/",
+      "destination": "/insights/data-privacy-and-e-commerce",
+      "permanent": true
+    },
+    {
+      "source": "/bangladesh-style-of-citation-of-legal-authorities",
+      "destination": "/insights/bangladesh-style-of-citation-of-legal-authorities",
+      "permanent": true
+    },
+    {
+      "source": "/bangladesh-style-of-citation-of-legal-authorities/",
+      "destination": "/insights/bangladesh-style-of-citation-of-legal-authorities",
+      "permanent": true
+    },
+    {
+      "source": "/framing-a-social-enterprise-law",
+      "destination": "/insights/framing-a-social-enterprise-law",
+      "permanent": true
+    },
+    {
+      "source": "/framing-a-social-enterprise-law/",
+      "destination": "/insights/framing-a-social-enterprise-law",
+      "permanent": true
+    },
+    {
+      "source": "/bangladesh-section-of-the-international-comparative-guide-to-project-finance-2016",
+      "destination": "/insights/bangladesh-section-of-the-international-comparative-guide-to-project-finance-2016",
+      "permanent": true
+    },
+    {
+      "source": "/bangladesh-section-of-the-international-comparative-guide-to-project-finance-2016/",
+      "destination": "/insights/bangladesh-section-of-the-international-comparative-guide-to-project-finance-2016",
+      "permanent": true
+    },
+    {
+      "source": "/mr-a-j-o-and-mrs-t-l-v-the-slovak-republic-uncitral-award",
+      "destination": "/insights/mr-a-j-o-and-mrs-t-l-v-the-slovak-republic-uncitral-award",
+      "permanent": true
+    },
+    {
+      "source": "/mr-a-j-o-and-mrs-t-l-v-the-slovak-republic-uncitral-award/",
+      "destination": "/insights/mr-a-j-o-and-mrs-t-l-v-the-slovak-republic-uncitral-award",
+      "permanent": true
+    },
+    {
+      "source": "/an-easy-conversion",
+      "destination": "/insights/an-easy-conversion",
+      "permanent": true
+    },
+    {
+      "source": "/an-easy-conversion/",
+      "destination": "/insights/an-easy-conversion",
+      "permanent": true
+    },
+    {
+      "source": "/faq-on-trusts",
+      "destination": "/insights/faq-on-trusts",
+      "permanent": true
+    },
+    {
+      "source": "/faq-on-trusts/",
+      "destination": "/insights/faq-on-trusts",
+      "permanent": true
+    },
+    {
+      "source": "/covid-19-government-support-measures",
+      "destination": "/insights/covid-19-government-support-measures",
+      "permanent": true
+    },
+    {
+      "source": "/covid-19-government-support-measures/",
+      "destination": "/insights/covid-19-government-support-measures",
+      "permanent": true
+    },
+    {
+      "source": "/employee-stock-option-eso-a-beneficial-plan-for-both-the-company-and-the-employees",
+      "destination": "/insights/employee-stock-option-eso-a-beneficial-plan-for-both-the-company-and-the-employees",
+      "permanent": true
+    },
+    {
+      "source": "/employee-stock-option-eso-a-beneficial-plan-for-both-the-company-and-the-employees/",
+      "destination": "/insights/employee-stock-option-eso-a-beneficial-plan-for-both-the-company-and-the-employees",
+      "permanent": true
+    },
+    {
+      "source": "/investing-workers-funds-differently-securities-seen-best-choice",
+      "destination": "/insights/investing-workers-funds-differently-securities-seen-best-choice",
+      "permanent": true
+    },
+    {
+      "source": "/investing-workers-funds-differently-securities-seen-best-choice/",
+      "destination": "/insights/investing-workers-funds-differently-securities-seen-best-choice",
+      "permanent": true
+    },
+    {
+      "source": "/faq-on-company-law-in-bangladesh",
+      "destination": "/insights/faq-on-company-law-in-bangladesh",
+      "permanent": true
+    },
+    {
+      "source": "/faq-on-company-law-in-bangladesh/",
+      "destination": "/insights/faq-on-company-law-in-bangladesh",
+      "permanent": true
+    },
+    {
+      "source": "/fairwork-bangladesh-ratings-2021-labour-standards-in-the-gig-economy",
+      "destination": "/insights/fairwork-bangladesh-ratings-2021-labour-standards-in-the-gig-economy",
+      "permanent": true
+    },
+    {
+      "source": "/fairwork-bangladesh-ratings-2021-labour-standards-in-the-gig-economy/",
+      "destination": "/insights/fairwork-bangladesh-ratings-2021-labour-standards-in-the-gig-economy",
+      "permanent": true
+    },
+    {
+      "source": "/telecoms-and-media-an-overview-of-regulation-in-44-jurisdictions-worldwide",
+      "destination": "/insights/telecoms-and-media-an-overview-of-regulation-in-44-jurisdictions-worldwide",
+      "permanent": true
+    },
+    {
+      "source": "/telecoms-and-media-an-overview-of-regulation-in-44-jurisdictions-worldwide/",
+      "destination": "/insights/telecoms-and-media-an-overview-of-regulation-in-44-jurisdictions-worldwide",
+      "permanent": true
+    },
+    {
+      "source": "/rehearsing-the-witness-the-bhawal-court-case-testimony-and-evidence",
+      "destination": "/insights/rehearsing-the-witness-the-bhawal-court-case-testimony-and-evidence",
+      "permanent": true
+    },
+    {
+      "source": "/rehearsing-the-witness-the-bhawal-court-case-testimony-and-evidence/",
+      "destination": "/insights/rehearsing-the-witness-the-bhawal-court-case-testimony-and-evidence",
+      "permanent": true
+    },
+    {
+      "source": "/safe-investments-in-bangladesh",
+      "destination": "/insights/safe-investments-in-bangladesh",
+      "permanent": true
+    },
+    {
+      "source": "/safe-investments-in-bangladesh/",
+      "destination": "/insights/safe-investments-in-bangladesh",
+      "permanent": true
+    },
+    {
+      "source": "/faq-regarding-enforcement-of-foreign-judgement-in-bangladesh",
+      "destination": "/insights/faq-regarding-enforcement-of-foreign-judgement-in-bangladesh",
+      "permanent": true
+    },
+    {
+      "source": "/faq-regarding-enforcement-of-foreign-judgement-in-bangladesh/",
+      "destination": "/insights/faq-regarding-enforcement-of-foreign-judgement-in-bangladesh",
+      "permanent": true
+    },
+    {
+      "source": "/faq-on-owning-real-estate-properties-by-dual-citizenship-holders-in-bangladesh",
+      "destination": "/insights/faq-on-owning-real-estate-properties-by-dual-citizenship-holders-in-bangladesh",
+      "permanent": true
+    },
+    {
+      "source": "/faq-on-owning-real-estate-properties-by-dual-citizenship-holders-in-bangladesh/",
+      "destination": "/insights/faq-on-owning-real-estate-properties-by-dual-citizenship-holders-in-bangladesh",
+      "permanent": true
+    },
+    {
+      "source": "/lexisnexis-company-law-guide-2018-2019",
+      "destination": "/insights/lexisnexis-company-law-guide-2018-2019",
+      "permanent": true
+    },
+    {
+      "source": "/lexisnexis-company-law-guide-2018-2019/",
+      "destination": "/insights/lexisnexis-company-law-guide-2018-2019",
+      "permanent": true
+    },
+    {
+      "source": "/faq-on-digital-bank-guidelines",
+      "destination": "/insights/faq-on-digital-bank-guidelines",
+      "permanent": true
+    },
+    {
+      "source": "/faq-on-digital-bank-guidelines/",
+      "destination": "/insights/faq-on-digital-bank-guidelines",
+      "permanent": true
+    },
+    {
+      "source": "/are-married-women-barred-from-being-trustees-in-bangladesh",
+      "destination": "/insights/are-married-women-barred-from-being-trustees-in-bangladesh",
+      "permanent": true
+    },
+    {
+      "source": "/are-married-women-barred-from-being-trustees-in-bangladesh/",
+      "destination": "/insights/are-married-women-barred-from-being-trustees-in-bangladesh",
+      "permanent": true
+    },
+    {
+      "source": "/navigating-legal-waters-independent-contractors-status-in-bangladesh",
+      "destination": "/insights/navigating-legal-waters-independent-contractors-status-in-bangladesh",
+      "permanent": true
+    },
+    {
+      "source": "/navigating-legal-waters-independent-contractors-status-in-bangladesh/",
+      "destination": "/insights/navigating-legal-waters-independent-contractors-status-in-bangladesh",
+      "permanent": true
+    },
+    {
+      "source": "/bringing-more-women-in-boardrooms-can-be-game-changer-in-bd-corporate-arena",
+      "destination": "/insights/bringing-more-women-in-boardrooms-can-be-game-changer-in-bd-corporate-arena",
+      "permanent": true
+    },
+    {
+      "source": "/bringing-more-women-in-boardrooms-can-be-game-changer-in-bd-corporate-arena/",
+      "destination": "/insights/bringing-more-women-in-boardrooms-can-be-game-changer-in-bd-corporate-arena",
+      "permanent": true
+    },
+    {
+      "source": "/cryptocurrency-conundrum-lessons-from-the-mtfe-scam-in-bangladesh",
+      "destination": "/insights/cryptocurrency-conundrum-lessons-from-the-mtfe-scam-in-bangladesh",
+      "permanent": true
+    },
+    {
+      "source": "/cryptocurrency-conundrum-lessons-from-the-mtfe-scam-in-bangladesh/",
+      "destination": "/insights/cryptocurrency-conundrum-lessons-from-the-mtfe-scam-in-bangladesh",
+      "permanent": true
+    },
+    {
+      "source": "/directors-in-share-market",
+      "destination": "/insights/directors-in-share-market",
+      "permanent": true
+    },
+    {
+      "source": "/directors-in-share-market/",
+      "destination": "/insights/directors-in-share-market",
+      "permanent": true
+    },
+    {
+      "source": "/independent-directors-the-role-and-its-evolution",
+      "destination": "/insights/independent-directors-the-role-and-its-evolution",
+      "permanent": true
+    },
+    {
+      "source": "/independent-directors-the-role-and-its-evolution/",
+      "destination": "/insights/independent-directors-the-role-and-its-evolution",
+      "permanent": true
+    },
+    {
+      "source": "/ensuring-judicial-oversight-in-lawful-interception",
+      "destination": "/insights/ensuring-judicial-oversight-in-lawful-interception",
+      "permanent": true
+    },
+    {
+      "source": "/ensuring-judicial-oversight-in-lawful-interception/",
+      "destination": "/insights/ensuring-judicial-oversight-in-lawful-interception",
+      "permanent": true
+    },
+    {
+      "source": "/faq-on-board-meetings",
+      "destination": "/insights/faq-on-board-meetings",
+      "permanent": true
+    },
+    {
+      "source": "/faq-on-board-meetings/",
+      "destination": "/insights/faq-on-board-meetings",
+      "permanent": true
+    },
+    {
+      "source": "/limited-aspect-regarding-tort-actions-by-legalcirclebd",
+      "destination": "/insights/limited-aspect-regarding-tort-actions-maintainable-under-the-laws-of-bangladesh",
+      "permanent": true
+    },
+    {
+      "source": "/limited-aspect-regarding-tort-actions-by-legalcirclebd/",
+      "destination": "/insights/limited-aspect-regarding-tort-actions-maintainable-under-the-laws-of-bangladesh",
+      "permanent": true
+    },
+    {
+      "source": "/limited-aspect-regarding-tort-actions-maintainable-under-the-laws-of-bangladesh",
+      "destination": "/insights/limited-aspect-regarding-tort-actions-maintainable-under-the-laws-of-bangladesh",
+      "permanent": true
+    },
+    {
+      "source": "/limited-aspect-regarding-tort-actions-maintainable-under-the-laws-of-bangladesh/",
+      "destination": "/insights/limited-aspect-regarding-tort-actions-maintainable-under-the-laws-of-bangladesh",
+      "permanent": true
+    },
+    {
+      "source": "/whats-in-a-trademark-by-legalcircle",
+      "destination": "/insights/what-s-in-a-trademark",
+      "permanent": true
+    },
+    {
+      "source": "/whats-in-a-trademark-by-legalcircle/",
+      "destination": "/insights/what-s-in-a-trademark",
+      "permanent": true
+    },
+    {
+      "source": "/festival-bonus-amid-covid-19-legalcircle",
+      "destination": "/insights/festival-bonus-amid-covid-19",
+      "permanent": true
+    },
+    {
+      "source": "/festival-bonus-amid-covid-19-legalcircle/",
+      "destination": "/insights/festival-bonus-amid-covid-19",
+      "permanent": true
+    },
+    {
+      "source": "/workforce-reduction-during-covid-19",
+      "destination": "/insights/workforce-reduction-during-covid-19-information-for-employers",
+      "permanent": true
+    },
+    {
+      "source": "/workforce-reduction-during-covid-19/",
+      "destination": "/insights/workforce-reduction-during-covid-19-information-for-employers",
+      "permanent": true
+    },
+    {
+      "source": "/the-employment-law-review",
+      "destination": "/insights/the-employment-law-review-edition-8",
+      "permanent": true
+    },
+    {
+      "source": "/the-employment-law-review/",
+      "destination": "/insights/the-employment-law-review-edition-8",
+      "permanent": true
+    },
+    {
+      "source": "/bangladesh-section-of-laws-on-telecom",
+      "destination": "/insights/bangladesh-section-of-laws-on-telecom-and-media-2013",
+      "permanent": true
+    },
+    {
+      "source": "/bangladesh-section-of-laws-on-telecom/",
+      "destination": "/insights/bangladesh-section-of-laws-on-telecom-and-media-2013",
+      "permanent": true
+    },
+    {
+      "source": "/the-temple-of-preah-vihear-cambodia-v-thailand",
+      "destination": "/insights/the-temple-of-preah-vihear-cambodia-v-thailand-decision-on-the-request-of-provisional-measures",
+      "permanent": true
+    },
+    {
+      "source": "/the-temple-of-preah-vihear-cambodia-v-thailand/",
+      "destination": "/insights/the-temple-of-preah-vihear-cambodia-v-thailand-decision-on-the-request-of-provisional-measures",
+      "permanent": true
+    },
+    {
+      "source": "/faq-on-workers-fund-in-bangladesh",
+      "destination": "/insights/faq-on-workers-funds-in-bangladesh",
+      "permanent": true
+    },
+    {
+      "source": "/faq-on-workers-fund-in-bangladesh/",
+      "destination": "/insights/faq-on-workers-funds-in-bangladesh",
+      "permanent": true
+    },
+    {
+      "source": "/legal-reform-as-a-catalyst-for-social-enterprise",
+      "destination": "/insights/legal-reform-as-a-catalyst-for-social-enterprise-an-international-social-enterprise-law-policy-report",
+      "permanent": true
+    },
+    {
+      "source": "/legal-reform-as-a-catalyst-for-social-enterprise/",
+      "destination": "/insights/legal-reform-as-a-catalyst-for-social-enterprise-an-international-social-enterprise-law-policy-report",
+      "permanent": true
+    },
+    {
+      "source": "/global_ma_trends_report-2022",
+      "destination": "/insights/global-m-a-trends-report-2022",
+      "permanent": true
+    },
+    {
+      "source": "/global_ma_trends_report-2022/",
+      "destination": "/insights/global-m-a-trends-report-2022",
+      "permanent": true
+    },
+    {
+      "source": "/faq-on-the-administration-and-distribution-of-the-deceased-estate-in-a-foreign-country",
+      "destination": "/insights/faq-on-administration-and-distribution-of-a-deceased-s-estate-under-bangladesh-law",
+      "permanent": true
+    },
+    {
+      "source": "/faq-on-the-administration-and-distribution-of-the-deceased-estate-in-a-foreign-country/",
+      "destination": "/insights/faq-on-administration-and-distribution-of-a-deceased-s-estate-under-bangladesh-law",
+      "permanent": true
+    },
+    {
+      "source": "/banking-on-change",
+      "destination": "/insights/banking-on-change-key-reforms-transforming-bangladesh-s-financial-sector",
+      "permanent": true
+    },
+    {
+      "source": "/banking-on-change/",
+      "destination": "/insights/banking-on-change-key-reforms-transforming-bangladesh-s-financial-sector",
+      "permanent": true
+    },
+    {
+      "source": "/bangladesh-chapter-on-global-legal-insights-energy-2021",
+      "destination": "/insights/bangladesh-chapter-on-global-legal-insights",
+      "permanent": true
+    },
+    {
+      "source": "/bangladesh-chapter-on-global-legal-insights-energy-2021/",
+      "destination": "/insights/bangladesh-chapter-on-global-legal-insights",
+      "permanent": true
+    },
+    {
+      "source": "/an-easy-conversion-2",
+      "destination": "/insights/an-easy-conversion",
+      "permanent": true
+    },
+    {
+      "source": "/an-easy-conversion-2/",
+      "destination": "/insights/an-easy-conversion",
+      "permanent": true
+    },
+    {
+      "source": "/mr-a-j-o-and-mrs-t-l-v-the-slovak-republic-uncitral-award-2",
+      "destination": "/insights/mr-a-j-o-and-mrs-t-l-v-the-slovak-republic-uncitral-award",
+      "permanent": true
+    },
+    {
+      "source": "/mr-a-j-o-and-mrs-t-l-v-the-slovak-republic-uncitral-award-2/",
+      "destination": "/insights/mr-a-j-o-and-mrs-t-l-v-the-slovak-republic-uncitral-award",
+      "permanent": true
+    },
+    {
+      "source": "/2019/08/08/an-easy-conversion",
+      "destination": "/insights/an-easy-conversion",
+      "permanent": true
+    },
+    {
+      "source": "/2019/08/08/an-easy-conversion/",
+      "destination": "/insights/an-easy-conversion",
+      "permanent": true
+    },
+    {
+      "source": "/2019/08/08/data-privacy-and-e-commerce",
+      "destination": "/insights/data-privacy-and-e-commerce",
+      "permanent": true
+    },
+    {
+      "source": "/2019/08/08/data-privacy-and-e-commerce/",
+      "destination": "/insights/data-privacy-and-e-commerce",
+      "permanent": true
+    },
+    {
+      "source": "/2019/08/08/framing-a-social-enterprise-law",
+      "destination": "/insights/framing-a-social-enterprise-law",
+      "permanent": true
+    },
+    {
+      "source": "/2019/08/08/framing-a-social-enterprise-law/",
+      "destination": "/insights/framing-a-social-enterprise-law",
+      "permanent": true
+    },
+    {
+      "source": "/2020/12/17/understanding-preference-shares-in-practice",
+      "destination": "/insights/understanding-preference-shares-in-practice",
+      "permanent": true
+    },
+    {
+      "source": "/2020/12/17/understanding-preference-shares-in-practice/",
+      "destination": "/insights/understanding-preference-shares-in-practice",
+      "permanent": true
+    },
+    {
+      "source": "/2020/12/17/data-digitalization-and-public-welfare-post-covid-19",
+      "destination": "/insights/data-digitalisation-and-public-welfare-post-covid-19",
+      "permanent": true
+    },
+    {
+      "source": "/2020/12/17/data-digitalization-and-public-welfare-post-covid-19/",
+      "destination": "/insights/data-digitalisation-and-public-welfare-post-covid-19",
+      "permanent": true
+    },
+    {
+      "source": "/2020/12/17/bangladesh-chapter-on-global-legal-insights-energy-2021",
+      "destination": "/insights/bangladesh-chapter-on-global-legal-insights",
+      "permanent": true
+    },
+    {
+      "source": "/2020/12/17/bangladesh-chapter-on-global-legal-insights-energy-2021/",
+      "destination": "/insights/bangladesh-chapter-on-global-legal-insights",
+      "permanent": true
+    }
+  ],
   "rewrites": [
-    { "source": "/(.*)", "destination": "/index.html" }
+    {
+      "source": "/client-articles",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/client-articles/:path*",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/tlc-articles",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/tlc-articles/:path*",
+      "destination": "/index.html"
+    }
   ]
 }

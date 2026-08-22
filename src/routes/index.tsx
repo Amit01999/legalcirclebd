@@ -1,4 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
+import { headFor } from "@/lib/seo";
 import { motion } from "framer-motion";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { useEffect, useState } from "react";
@@ -6,18 +7,7 @@ import heroBooks from "@/assets/hero-bg.jpg";
 import logo from "@/assets/logo1.png";
 
 export const Route = createFileRoute("/")({
-  head: () => ({
-    meta: [
-      { title: "The Legal Circle — Full-Service Law Firm in Bangladesh" },
-      {
-        name: "description",
-        content:
-          "The Legal Circle is a full-service law firm advising on cross-border instructions, corporate, finance, IP, disputes, and more.",
-      },
-      { property: "og:title", content: "The Legal Circle" },
-      { property: "og:description", content: "Full-service law firm in Bangladesh." },
-    ],
-  }),
+  head: () => headFor("/"),
   component: Index,
 });
 

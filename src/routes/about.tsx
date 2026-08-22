@@ -1,20 +1,11 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { headFor } from "@/lib/seo";
 import { PageHero } from "@/components/Section";
 import heroBuilding from "@/assets/hero-building.jpg";
 import logoMark from "@/assets/logo1.png";
 
 export const Route = createFileRoute("/about")({
-  head: () => ({
-    meta: [
-      { title: "About Us — The Legal Circle" },
-      {
-        name: "description",
-        content: "Learn about The Legal Circle, our mission, vision, and recognitions.",
-      },
-      { property: "og:title", content: "About Us — The Legal Circle" },
-      { property: "og:description", content: "About our firm, mission and recognitions." },
-    ],
-  }),
+  head: () => headFor("/about"),
   component: About,
 });
 

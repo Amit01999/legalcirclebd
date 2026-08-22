@@ -1,23 +1,11 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { headFor } from "@/lib/seo";
 import { PageHero } from "@/components/Section";
 import heroBuilding from "@/assets/hero-building.jpg";
 import LexMundiLogo from "@/assets/LexMundi-New-Logo.png";
 import LexMundibottom from "@/assets/Legal-Circle-New-Slide-2.png";
 export const Route = createFileRoute("/lex-mundi")({
-  head: () => ({
-    meta: [
-      { title: "Lex Mundi — The Legal Circle" },
-      {
-        name: "description",
-        content: "The Legal Circle is the exclusive Lex Mundi member firm for Bangladesh.",
-      },
-      { property: "og:title", content: "Lex Mundi — The Legal Circle" },
-      {
-        property: "og:description",
-        content: "Member firm of the world's leading network of independent law firms.",
-      },
-    ],
-  }),
+  head: () => headFor("/lex-mundi"),
   component: LexMundi,
 });
 
