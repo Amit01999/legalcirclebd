@@ -8,7 +8,7 @@ import masudKhanImage from "@/assets/peoples/masudkhan.jpg";
 import nafiulAlamShuptoImage from "@/assets/peoples/Shupto-Profile-Page.jpg";
 import nauriinAhmedImage from "@/assets/peoples/nauriinahmed-scaled.jpg";
 import pushpoRahmanImage from "@/assets/peoples/Pushpo-Rahman--scaled.jpg";
-import sameeraMahmudImage from "@/assets/peoples/Sameera-Mahmud-Large-Image.png";
+import sameeraMahmudImage from "@/assets/peoples/Sameera-Mahmud-Large-Image.jpg";
 import taahsinaRaisaRabbiImage from "@/assets/peoples/taahsinaraisa-scaled.jpg";
 import umerAimanKhanImage from "@/assets/peoples/umeraimankhan-scaled.jpg";
 import mahmudulHasanRabiulImage from "@/assets/peoples/Rabiul-1.jpg";
@@ -350,7 +350,7 @@ const nauriinAhmed: Person = {
     {
       title: "Publications",
       items: [
-        "\"The Rules Have Changed: Bangladesh's 2025-2026 Labour Law Reforms and What It Means for Businesses\" — Mondaq, https://www.mondaq.com/employee-benefits-compensation/1800374/the-rules-have-changed-bangladeshs-2025-2026-labour-law-reforms-and-what-it-means-for-businesses",
+        '"The Rules Have Changed: Bangladesh\'s 2025-2026 Labour Law Reforms and What It Means for Businesses" — Mondaq, https://www.mondaq.com/employee-benefits-compensation/1800374/the-rules-have-changed-bangladeshs-2025-2026-labour-law-reforms-and-what-it-means-for-businesses',
       ],
     },
   ],

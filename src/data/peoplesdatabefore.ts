@@ -7,7 +7,7 @@ import masudKhanImage from "@/assets/peoples/masudkhan.jpg";
 import nafiulAlamShuptoImage from "@/assets/peoples/Shupto-Profile-Page.jpg";
 import nauriinAhmedImage from "@/assets/peoples/nauriinahmed-scaled.jpg";
 import pushpoRahmanImage from "@/assets/peoples/Pushpo-Rahman--scaled.jpg";
-import sameeraMahmudImage from "@/assets/peoples/Sameera-Mahmud-Large-Image.png";
+import sameeraMahmudImage from "@/assets/peoples/Sameera-Mahmud-Large-Image.jpg";
 import taahsinaRaisaRabbiImage from "@/assets/peoples/taahsinaraisa-scaled.jpg";
 import umerAimanKhanImage from "@/assets/peoples/umeraimankhan-scaled.jpg";
 import mahmudulHasanRabiulImage from "@/assets/peoples/Rabiul-1.jpg";
