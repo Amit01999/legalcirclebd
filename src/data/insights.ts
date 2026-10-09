@@ -1,3 +1,16 @@
+import faqDeceasedEstatePdf from "@/assets/FAQ/FAQ-on-Administration-and-Distribution-of-a-Deceaseds-Estate-under-Bangladesh-Law.pdf";
+import faqBoardMeetingsPdf from "@/assets/FAQ/FAQ-on-Board-Meetings.pdf";
+import faqDigitalBankGuidelinesPdf from "@/assets/FAQ/FAQ-on-Digital-Bank-Guidelines_1.pdf";
+import faqDualCitizenshipRealEstatePdf from "@/assets/FAQ/FAQ-on-owning-Real-Estate-Properties-by-Dual-Citizenship-Holders-in-Bangladesh.pdf";
+import faqTrustsPdf from "@/assets/FAQ/FAQ-on-Trusts.pdf";
+import faqForeignJudgementPdf from "@/assets/FAQ/FAQ-Regarding-Enforcement-of-Foreign-Judgement-in-Bangladesh.pdf";
+import faqWorkersFundPdf from "@/assets/FAQ/FAQ-Workers-Fund-in-Bangladesh-Final.pdf";
+
+export type InsightBlock =
+  | { type: "text"; heading?: string; text?: string }
+  | { type: "table"; heading?: string; head: string[]; rows: string[][] }
+  | { type: "note"; text: string };
+
 export interface InsightPost {
   slug: string;
   date: string;
@@ -5,6 +18,8 @@ export interface InsightPost {
   excerpt: string;
   url: string;
   author?: string;
+  /** Formatted content shown on the detail page in place of `excerpt`. */
+  body?: InsightBlock[];
 }
 
 function slugify(title: string): string {
@@ -56,7 +71,7 @@ const rawPosts = [
     title: "FAQ on Board Meetings",
     author: "Anita Ghazi Rahman",
     excerpt: "To read the full article, Click here.",
-    url: "https://legalcirclebd.com/wp-content/uploads/2025/05/FAQ-on-Board-Meetings.pdf",
+    url: faqBoardMeetingsPdf,
   },
   {
     date: "December 10, 2024",
@@ -107,7 +122,7 @@ const rawPosts = [
     author: "Pushpo Rahman",
     excerpt:
       "Under the probate and administration law of Bangladesh, who has the prior right to take up administration and distribution of a deceased's estate?",
-    url: "https://legalcirclebd.com/wp-content/uploads/2023/08/FAQ-on-Administration-and-Distribution-of-a-Deceaseds-Estate-under-Bangladesh-Law.pdf",
+    url: faqDeceasedEstatePdf,
   },
   {
     date: "July 22, 2023",
@@ -123,14 +138,14 @@ const rawPosts = [
     author: "Anita Ghazi Rahman",
     excerpt:
       "The central bank of Bangladesh, the Bangladesh Bank issued the Guidelines to Establish Digital Bank.",
-    url: "https://legalcirclebd.com/wp-content/uploads/2023/07/FAQ-on-Digital-Bank-Guidelines_1.pdf",
+    url: faqDigitalBankGuidelinesPdf,
   },
   {
     date: "June 4, 2023",
     title: "FAQ Regarding Enforcement of Foreign Judgement in Bangladesh",
     author: "Nauriin Ahmed",
     excerpt: "To read full report, click here.",
-    url: "https://legalcirclebd.com/wp-content/uploads/2023/06/FAQ-Regarding-Enforcement-of-Foreign-Judgement-in-Bangladesh.pdf",
+    url: faqForeignJudgementPdf,
   },
   {
     date: "December 15, 2022",
@@ -146,7 +161,7 @@ const rawPosts = [
     author: "Taahsina Raisa Rabbi",
     excerpt:
       "Can foreign nationals sell property in Bangladesh through a duly registered Power of Attorney?",
-    url: "https://legalcirclebd.com/wp-content/uploads/2022/06/FAQ-on-owning-Real-Estate-Properties-by-Dual-Citizenship-Holders-in-Bangladesh.pdf",
+    url: faqDualCitizenshipRealEstatePdf,
   },
   {
     date: "February 24, 2022",
@@ -183,32 +198,76 @@ const rawPosts = [
     title: "FAQ on Company Law in Bangladesh",
     author: "The Legal Circle",
     excerpt: `A. Types of Company :
-The Companies Act, 1994 defines the word company as "a company formed and registered under this Act or an existing company". Therefore, a company is formed under the Companies Act, 1994 by a group of people who come together for achieving a common objective.
-
-There are three types of companies in Bangladesh:
+The Companies Act, 1994 defines the word company as "a company formed and registered under this Act or an existing company". Therefore, a company is formed under the Companies Act, 1994 by a group of people who come together for achieving a common objective.`,
+    url: "",
+    body: [
+      {
+        type: "text",
+        heading: "A. Types of Company :",
+        text: "The Companies Act, 1994 defines the word company as “a company formed and registered under this Act or an existing company”. Therefore, a company is formed under the Companies Act, 1994 by a group of people who come together for achieving a common objective.",
+      },
+      {
+        type: "text",
+        text: `There are three types of companies in Bangladesh:
 1. Private Limited Company;
 2. Public Limited Company; and
-3. One Person Company ("OPC"), introduced by Companies (Amendment) Act, 2020.
-
-1. Private Limited Company
-Most Bangladeshi companies are registered as private limited liability companies, commonly known as private limited companies. A private limited company is a separate legal entity and shareholders are not liable for the company's debts beyond the amount of share capital they have contributed. According to the Companies Act, 1994, any person (foreign or local) above the age of 18 can register a company in Bangladesh. Section 2(1)(q) defines a company to mean a company which by its articles:
-
-· restricts the right to transfer its shares;
+3. One Person Company (“OPC”), introduced by Companies (Amendment) Act, 2020.`,
+      },
+      {
+        type: "text",
+        heading: "1. Private Limited Company",
+        text: "Most Bangladeshi companies are registered as private limited liability companies, commonly known as private limited companies. A private limited company is a separate legal entity and shareholders are not liable for the company’s debts beyond the amount of share capital they have contributed. According to the Companies Act, 1994, any person (foreign or local) above the age of 18 can register a company in Bangladesh. Section 2(1)(q) defines a company to mean a company which by its articles:",
+      },
+      {
+        type: "text",
+        text: `· restricts the right to transfer its shares;
 · prohibits any invitation to the public to subscribe for its shares or debentures, if any;
-· limits the number of its members to 50.
-
-2. Public Limited Company
-In contrast to a private limited company, a public limited company can invite the public to hold shares and is often listed or looking to list on a stock exchange. Section 2(1)(r) of the Companies Act, 1994 defines a public company to mean - "... a company incorporated under this Act or under any law at any time in force before the commencement of this Act and which is not a private company." In short, a public company is one where the Articles of Association do not provide any restrictions on the transfer of shares, the maximum number of members (but must have a minimum of 7 members), and allows for the invitation to the public seeking their subscription for its shares.
-
-3. OPC
-In 2020, the Companies Act, 1994 has been amended twice by the Parliament and vital amendments have been brought in regard to OPC formation, registration, management, etc. These new amendments have opened the door for OPC, some of the key features of which include:
-
-· Only a natural person can form an OPC;
-· The paid-up capital shall be minimum of BDT. 2,500,000 (Bangladesh Taka Twenty Five Lacs) and maximum of BDT. 50,000,000 (Bangladesh Taka Five Crore).
-· The preceding year's turnover must be a minimum of BDT. 10,000,000 (Bangladesh Taka One Crore) and a maximum of BDT. 500,000,000 (Bangladesh Taka Fifty Crore).
+· limits the number of its members to 50.`,
+      },
+      {
+        type: "text",
+        heading: "2. Public Limited Company",
+        text: "In contrast to a private limited company, a public limited company can invite the public to hold shares and is often listed or looking to list on a stock exchange. Section 2(1)(r) of the Companies Act, 1994 defines a public company to mean – “… a company incorporated under this Act or under any law at any time in force before the commencement of this Act and which is not a private company.” In short, a public company is one where the Articles of Association do not provide any restrictions on-",
+      },
+      {
+        type: "text",
+        text: `· the transfer of shares,
+· the maximum number of members (but must have a minimum of 7 members). and allows for the invitation to the public seeking their subscription for its shares.`,
+      },
+      { type: "text", heading: "3. OPC" },
+      {
+        type: "text",
+        text: "In 2020, the Companies Act, 1994 has been amended twice by the Parliament and vital amendments have been brought in regard to OPC formation, registration, management, etc. These new amendments have opened the door for OPC, some of the key features of which include:",
+      },
+      {
+        type: "text",
+        text: `· Only a natural person can form an OPC;
+· The paid-up capital shall be minimum of BDT. 2500000 (Bangladesh Taka Twenty Five Lacs) and maximum of BDT. 50000000 (Bangladesh Taka Five Crore).
+· The preceding year’s turnover must be a minimum of BDT. 10000000 (Bangladesh Taka One Crore) and a maximum of BDT. 500000000 (Bangladesh Taka Fifty crore).
 · The sole shareholder of OPC shall be its Director as well as manager, company secretary, and other employees may be appointed to manage the OPC.
 · All shares of the OPC can be transferred to any other natural person subject to the provision of section 38 of the Companies Act, 1994.`,
-    url: "",
+      },
+      {
+        type: "table",
+        heading: "B. Requirements of minimum shareholders & directors:",
+        head: ["", "Public Limited", "Private Limited", "OPC"],
+        rows: [
+          ["Minimum Shareholder", "7", "2", "1"],
+          ["Minimum Director", "3", "2", "1"],
+        ],
+      },
+      { type: "text", heading: "C. What is authorized capital?" },
+      {
+        type: "text",
+        text: "Authorized share capital is the maximum amount of share capital that is mentioned in the Company’s Memorandum of Association. This is the amount of share capital that a company is permitted to issue to its shareholders and cannot issue more than that amount. For a local company in Bangladesh, subject to industry-specific restrictions, there is no minimum or maximum limit for authorized share capital. Also, a company has no obligation to issue the entirety of its authorized capital. To increase authorized capital of a private limited company, a general meeting has to be conducted by the shareholders and the decision of increasing the authorized capital requires approval in the meeting. Upon approval, essential statutory forms must be submitted to the Registrar of Joint Stock Companies and Firms (RJSC). It takes around 15 working days from the date of filing obtain approval from the RJSC.",
+      },
+      { type: "text", heading: "D. What is Paid-up capital?" },
+      {
+        type: "text",
+        text: "Paid-up capital is the total amount of money a company has received from shareholders in exchange for shares of stock. To increase paid up capital of a private limited company, a board meeting is required to be held and the decision for increasing the paid-up capital requires approval in the meeting. Upon approval, essential statutory forms must be submitted to the RJSC. It takes around 7 working days from the date of filing to obtain bank verification and post-receipt of bank verification, it takes around 10 working days to get the approval from the RJSC.",
+      },
+      { type: "note", text: "* Please note all timelines mentioned are indicative." },
+    ] satisfies InsightBlock[],
   },
   {
     date: "December 22, 2021",
@@ -231,7 +290,7 @@ In 2020, the Companies Act, 1994 has been amended twice by the Parliament and vi
     title: "FAQ on Workers' Funds in Bangladesh",
     author: "The Legal Circle",
     excerpt: "Discussion on different types of workers' fund in Bangladesh.",
-    url: "https://legalcirclebd.com/wp-content/uploads/2021/11/FAQ-Workers-Fund-in-Bangladesh-Final.pdf",
+    url: faqWorkersFundPdf,
   },
   {
     date: "June 10, 2021",
@@ -239,7 +298,7 @@ In 2020, the Companies Act, 1994 has been amended twice by the Parliament and vi
     author: "The Legal Circle",
     excerpt:
       "A Trust is an obligation imposed on one or more persons, Trustees, with regard to property.",
-    url: "https://legalcirclebd.com/wp-content/uploads/2021/06/FAQ-on-Trusts.pdf",
+    url: faqTrustsPdf,
   },
   {
     date: "May 1, 2021",
