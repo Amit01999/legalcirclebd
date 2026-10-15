@@ -5,6 +5,7 @@ import faqDualCitizenshipRealEstatePdf from "@/assets/FAQ/FAQ-on-owning-Real-Est
 import faqTrustsPdf from "@/assets/FAQ/FAQ-on-Trusts.pdf";
 import faqForeignJudgementPdf from "@/assets/FAQ/FAQ-Regarding-Enforcement-of-Foreign-Judgement-in-Bangladesh.pdf";
 import faqWorkersFundPdf from "@/assets/FAQ/FAQ-Workers-Fund-in-Bangladesh-Final.pdf";
+import workplaceHarassmentPdf from "@/assets/pdf/Employment__Workplace Harassment_2026.pdf";
 
 export type InsightBlock =
   | { type: "text"; heading?: string; text?: string }
@@ -30,6 +31,13 @@ function slugify(title: string): string {
 }
 
 const rawPosts = [
+  {
+    date: "October 15, 2026",
+    title: "Workplace Harassment in Bangladesh after the 2026 Amendment",
+    excerpt:
+      "For seventeen years, the law on sexual harassment at work in Bangladesh lived in a judgment of the Supreme Court rather than in a statute. That changed on 10 April 2026 when the Bangladesh Labour (Amendment) Act, 2026 (Act No. 43 of 2026) included a definition of sexual harassment into the Bangladesh Labour Act, 2006, imposed positive duties on every employer, made a complaints committee compulsory and attached penalties.",
+    url: workplaceHarassmentPdf,
+  },
   {
     date: "July 4, 2026",
     title: "Bangladesh Personal Data Protection Act, 2026",
