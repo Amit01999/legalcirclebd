@@ -90,6 +90,151 @@
   }
 }
 
+/* "a)" list numbering, as used in the FAQ documents. */
+@counter-style alpha-paren {
+  system: extends lower-alpha;
+  suffix: ") ";
+}
+
+@layer components {
+  /* Long-form documents rendered from HTML on insight pages (src/data/faq-content.ts). */
+  .insight-doc {
+    overflow-wrap: break-word;
+  }
+
+  .insight-doc :where(p, ul, ol, blockquote, .table-wrap, .footnotes) {
+    margin-top: 1rem;
+  }
+
+  .insight-doc h2 {
+    margin-top: 2.25rem;
+    font-size: 1.0625rem;
+    font-weight: 700;
+    line-height: 1.6;
+    color: #252a25;
+  }
+
+  .insight-doc > :first-child,
+  .insight-doc li > :first-child,
+  .insight-doc blockquote > :first-child {
+    margin-top: 0;
+  }
+
+  .insight-doc :where(ul, ol) {
+    padding-left: 1.75rem;
+  }
+
+  .insight-doc ul {
+    list-style-type: disc;
+  }
+
+  .insight-doc ol {
+    list-style-type: decimal;
+  }
+
+  .insight-doc ol.alpha {
+    list-style-type: lower-alpha;
+  }
+
+  .insight-doc ol.alpha-paren {
+    list-style-type: alpha-paren;
+  }
+
+  .insight-doc ol.roman {
+    list-style-type: lower-roman;
+  }
+
+  .insight-doc ol.upper-roman {
+    list-style-type: upper-roman;
+  }
+
+  .insight-doc li {
+    padding-left: 0.25rem;
+  }
+
+  .insight-doc li + li {
+    margin-top: 0.5rem;
+  }
+
+  .insight-doc li :where(p, ul, ol) {
+    margin-top: 0.5rem;
+  }
+
+  .insight-doc h2 + * {
+    margin-top: 0.75rem;
+  }
+
+  /* Question-and-answer lists, where each item starts with a question heading. */
+  .insight-doc ul.questions > li + li {
+    margin-top: 2.25rem;
+  }
+
+  .insight-doc :where(.doc-title, .byline) {
+    text-align: center;
+  }
+
+  .insight-doc .doc-title {
+    color: #252a25;
+  }
+
+  .insight-doc .credit {
+    margin-top: 2rem;
+    text-align: right;
+  }
+
+  .insight-doc hr {
+    margin-top: 2.5rem;
+  }
+
+  .insight-doc .table-wrap {
+    overflow-x: auto;
+  }
+
+  .insight-doc table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  .insight-doc :where(th, td) {
+    border: 1px solid #dde3d3;
+    padding: 0.5rem 0.75rem;
+    vertical-align: top;
+  }
+
+  .insight-doc thead th {
+    background-color: #f8faf3;
+    font-weight: 700;
+    color: #252a25;
+    text-align: center;
+  }
+
+  .insight-doc tbody th {
+    font-weight: 400;
+    text-align: center;
+  }
+
+  .insight-doc .footnotes {
+    position: relative;
+    margin-top: 2.5rem;
+    padding-top: 0.75rem;
+    font-size: 0.875rem;
+    line-height: 1.7;
+  }
+
+  .insight-doc .footnotes::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 10rem;
+    border-top: 1px solid #c9d0bf;
+  }
+
+  .insight-doc .footnotes p {
+    margin-top: 0.25rem;
+  }
+}
+
 @layer utilities {
   .container-lc {
     max-width: 1180px;

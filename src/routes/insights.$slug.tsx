@@ -175,15 +175,17 @@ function InsightDetailPage() {
         <div className="container-lc max-w-[820px]">
           <article className="border-t border-[#DDE3D3] pt-6">
             <div className="space-y-4 text-[16px] leading-[1.85] text-[#3F473E]">
-              {post.body
-                ? post.body.map((block, i) => <InsightBodyBlock key={i} block={block} />)
-                : isPlaceholderExcerpt
-                  ? null
-                  : post.excerpt.split("\n\n").map((para, i) => (
-                      <p key={i} className="whitespace-pre-line">
-                        {para}
-                      </p>
-                    ))}
+              {post.content ? (
+                <div className="insight-doc" dangerouslySetInnerHTML={{ __html: post.content }} />
+              ) : post.body ? (
+                post.body.map((block, i) => <InsightBodyBlock key={i} block={block} />)
+              ) : isPlaceholderExcerpt ? null : (
+                post.excerpt.split("\n\n").map((para, i) => (
+                  <p key={i} className="whitespace-pre-line">
+                    {para}
+                  </p>
+                ))
+              )}
 
               {post.url && (
                 <p className="pt-2">

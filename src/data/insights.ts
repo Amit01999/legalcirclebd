@@ -1,11 +1,13 @@
-import faqDeceasedEstatePdf from "@/assets/FAQ/FAQ-on-Administration-and-Distribution-of-a-Deceaseds-Estate-under-Bangladesh-Law.pdf";
-import faqBoardMeetingsPdf from "@/assets/FAQ/FAQ-on-Board-Meetings.pdf";
-import faqDigitalBankGuidelinesPdf from "@/assets/FAQ/FAQ-on-Digital-Bank-Guidelines_1.pdf";
-import faqDualCitizenshipRealEstatePdf from "@/assets/FAQ/FAQ-on-owning-Real-Estate-Properties-by-Dual-Citizenship-Holders-in-Bangladesh.pdf";
-import faqTrustsPdf from "@/assets/FAQ/FAQ-on-Trusts.pdf";
-import faqForeignJudgementPdf from "@/assets/FAQ/FAQ-Regarding-Enforcement-of-Foreign-Judgement-in-Bangladesh.pdf";
-import faqWorkersFundPdf from "@/assets/FAQ/FAQ-Workers-Fund-in-Bangladesh-Final.pdf";
-import workplaceHarassmentPdf from "@/assets/pdf/Employment__Workplace Harassment_2026.pdf";
+import {
+  faqBoardMeetingsContent,
+  faqDeceasedEstateContent,
+  faqDigitalBankGuidelinesContent,
+  faqDualCitizenshipContent,
+  faqForeignJudgementContent,
+  faqTrustsContent,
+  faqWorkersFundContent,
+  workplaceHarassmentContent,
+} from "@/data/faq-content";
 
 export type InsightBlock =
   | { type: "text"; heading?: string; text?: string }
@@ -21,6 +23,8 @@ export interface InsightPost {
   author?: string;
   /** Formatted content shown on the detail page in place of `excerpt`. */
   body?: InsightBlock[];
+  /** HTML document shown on the detail page in place of `excerpt`. */
+  content?: string;
 }
 
 function slugify(title: string): string {
@@ -36,7 +40,8 @@ const rawPosts = [
     title: "Workplace Harassment in Bangladesh after the 2026 Amendment",
     excerpt:
       "For seventeen years, the law on sexual harassment at work in Bangladesh lived in a judgment of the Supreme Court rather than in a statute. That changed on 10 April 2026 when the Bangladesh Labour (Amendment) Act, 2026 (Act No. 43 of 2026) included a definition of sexual harassment into the Bangladesh Labour Act, 2006, imposed positive duties on every employer, made a complaints committee compulsory and attached penalties.",
-    url: workplaceHarassmentPdf,
+    url: "",
+    content: workplaceHarassmentContent,
   },
   {
     date: "July 4, 2026",
@@ -79,7 +84,8 @@ const rawPosts = [
     title: "FAQ on Board Meetings",
     author: "Anita Ghazi Rahman",
     excerpt: "To read the full article, Click here.",
-    url: faqBoardMeetingsPdf,
+    url: "",
+    content: faqBoardMeetingsContent,
   },
   {
     date: "December 10, 2024",
@@ -130,7 +136,8 @@ const rawPosts = [
     author: "Pushpo Rahman",
     excerpt:
       "Under the probate and administration law of Bangladesh, who has the prior right to take up administration and distribution of a deceased's estate?",
-    url: faqDeceasedEstatePdf,
+    url: "",
+    content: faqDeceasedEstateContent,
   },
   {
     date: "July 22, 2023",
@@ -146,14 +153,16 @@ const rawPosts = [
     author: "Anita Ghazi Rahman",
     excerpt:
       "The central bank of Bangladesh, the Bangladesh Bank issued the Guidelines to Establish Digital Bank.",
-    url: faqDigitalBankGuidelinesPdf,
+    url: "",
+    content: faqDigitalBankGuidelinesContent,
   },
   {
     date: "June 4, 2023",
     title: "FAQ Regarding Enforcement of Foreign Judgement in Bangladesh",
     author: "Nauriin Ahmed",
     excerpt: "To read full report, click here.",
-    url: faqForeignJudgementPdf,
+    url: "",
+    content: faqForeignJudgementContent,
   },
   {
     date: "December 15, 2022",
@@ -169,7 +178,8 @@ const rawPosts = [
     author: "Taahsina Raisa Rabbi",
     excerpt:
       "Can foreign nationals sell property in Bangladesh through a duly registered Power of Attorney?",
-    url: faqDualCitizenshipRealEstatePdf,
+    url: "",
+    content: faqDualCitizenshipContent,
   },
   {
     date: "February 24, 2022",
@@ -298,7 +308,8 @@ The Companies Act, 1994 defines the word company as "a company formed and regist
     title: "FAQ on Workers' Funds in Bangladesh",
     author: "The Legal Circle",
     excerpt: "Discussion on different types of workers' fund in Bangladesh.",
-    url: faqWorkersFundPdf,
+    url: "",
+    content: faqWorkersFundContent,
   },
   {
     date: "June 10, 2021",
@@ -306,7 +317,8 @@ The Companies Act, 1994 defines the word company as "a company formed and regist
     author: "The Legal Circle",
     excerpt:
       "A Trust is an obligation imposed on one or more persons, Trustees, with regard to property.",
-    url: faqTrustsPdf,
+    url: "",
+    content: faqTrustsContent,
   },
   {
     date: "May 1, 2021",

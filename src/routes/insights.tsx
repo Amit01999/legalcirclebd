@@ -24,20 +24,22 @@ function Insights() {
           {posts.map((p) => (
             <article
               key={p.slug}
-              className="group flex min-h-[260px] flex-col border border-border bg-[#F7F7F7] p-6 shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-md"
+              className={`group flex min-h-[260px] flex-col border border-border bg-[#F7F7F7] p-6 shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-md${p.content ? " relative" : ""}`}
             >
               <div className="mb-3 text-xs uppercase tracking-wider text-brand">{p.date}</div>
+              {/* Cards with an on-site document are clickable as a whole: the title
+                  link stretches over the card and "Read article" sits above it. */}
               <Link
                 to="/insights/$slug"
                 params={{ slug: p.slug }}
-                className="mb-4 font-serif text-xl leading-snug text-ink group-hover:text-brand"
+                className={`mb-4 font-serif text-xl leading-snug text-ink group-hover:text-brand${p.content ? " after:absolute after:inset-0" : ""}`}
               >
                 <h3>{p.title}</h3>
               </Link>
               <Link
                 to="/insights/$slug"
                 params={{ slug: p.slug }}
-                className="mt-auto pt-6 text-sm font-medium uppercase tracking-[0.18em] text-brand transition hover:text-ink"
+                className={`mt-auto pt-6 text-sm font-medium uppercase tracking-[0.18em] text-brand transition hover:text-ink${p.content ? " relative z-10" : ""}`}
               >
                 Read article
               </Link>
