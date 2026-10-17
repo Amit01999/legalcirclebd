@@ -5,32 +5,32 @@
 // the numbering style (alpha, roman, upper-roman, alpha-paren).
 
 export const workplaceHarassmentContent = `
-<p class="doc-title"><strong>INSIGHT | EMPLOYMENT</strong></p>
+<p class="doc-title accent"><strong>INSIGHT | EMPLOYMENT</strong></p>
 <p class="byline"><em>Seven questions for General Counsel</em></p>
 <p>For seventeen years, the law on sexual harassment at work in Bangladesh lived in a judgment of the Supreme Court rather than in a statute. That changed on 10 April 2026 when the Bangladesh Labour (Amendment) Act, 2026 (Act No. 43 of 2026) included a definition of sexual harassment into the Bangladesh Labour Act, 2006, imposed positive duties on every employer, made a complaints committee compulsory and attached penalties. Below a discussion on frequently asked questions we face on this topic:</p>
 
-<h2>1. Is there now a statutory definition of sexual harassment?</h2>
+<h2 class="accent">1. Is there now a statutory definition of sexual harassment?</h2>
 <p>Yes. Section 2(52A) of the Bangaldesh Labour Act, 2006 (as amended in 2026) [the “Act”] lists thirteen forms of conduct, from unwelcome physical contact and sexually coloured remarks to recording images for blackmail and <em>quid pro quo</em> harassment, and adds a hostile environment limb for conduct based on gender, gender identity or gender expression. Sections 2(12B) and 2(79) of the Act define gender-based violence and harassment and, more broadly, violence and harassment, which includes physical, psychological, sexual and economic harm, whether the conduct occurs once or repeatedly.</p>
 
-<h2>2. What must every employer now do?</h2>
+<h2 class="accent">2. What must every employer now do?</h2>
 <p>Section 332 of the Act, as substituted, requires the employer to keep the working environment free of hostility; to publicise the prohibitions and penalties; to adopt and implement a workplace policy against violence and harassment; to assess violence, harassment and psychosocial risk within its occupational safety and health management; to inform and train its staff; to publish its complaints procedure on its website; and to take effective steps so that cases of sexual harassment can be filed under the general law. A policy confined to sexual harassment which speaks of violence and harassment generally only, is no longer enough. Further, section 332(2) protects a woman of any rank from indecent conduct by “any colleague or anyone else”, so co-workers, clients and contractors all come within the fold.</p>
 
-<h2>3. Is a complaints committee mandatory?</h2>
+<h2 class="accent">3. Is a complaints committee mandatory?</h2>
 <p>Yes, it is mandatory for every employer irrespective of employee headcount threshold. Section 332A of the Act requires five (5) members, a majority of who should be women from within the establishment; with a woman as head and two (2) members taken from organisations working on gender and sexual abuse. The two external seats are compulsory. The committee must follow a zero tolerance policy and act with confidentiality and respect for human dignity. Breach attracts a fine of Tk.20,000 to Tk.50,000 under section 307A. Rule 361KA of the Bangladesh Labour Rules, 2015 adds a complaint box and a register at each workplace and a written guideline for every member of staff.</p>
 
-<h2>4. Does the <em>BNWLA</em> judgment still matter?</h2>
+<h2 class="accent">4. Does the <em>BNWLA</em> judgment still matter?</h2>
 <p>In our view, yes. The guidelines in <em>Bangladesh National Women Lawyers’ Association vs. Bangladesh</em> bind “until adequate and appropriate legislation is made”. Section 332A re-enacts the committee but not every guideline. Whether the 2026 amendment displaces them is untested. In our view, compliance costs little; being the test case does not.</p>
 
-<h2>5. How does a committee finding become a sanction?</h2>
+<h2 class="accent">5. How does a committee finding become a sanction?</h2>
 <p>This is where imported policies most often fail. A “worker”, which now includes a manager unless managerial or supervisory responsibility has been conferred in writing, may be punished only through the procedure in section 24 of the Act, which include a written charge, at least seven (7) days to reply, a hearing, and an inquiry by a committee of equal employer and worker representatives concluded within sixty (60) days. The section 332A committee does not replace that inquiry. The list of misconduct in section 23(4) of the Act still does not mention harassment explicitly, so service rules approved by the Chief Inspector under section 3 that name harassment as misconduct are well worth having. So far as we are aware, procedural rules under section 332A(4) have not yet been made, so the employer’s own policy must carry the procedure.</p>
 
-<h2>6. What other exposure should a group General Counsel watch?</h2>
+<h2 class="accent">6. What other exposure should a group General Counsel watch?</h2>
 <p><strong>Discrimination:</strong> Sections 345A to 345C treat sexual harassment as discrimination and place the burden of proof on the employer, so signed policy acknowledgements and training records become evidence rather than just paperwork.</p>
 <p><strong>Retaliation:</strong> Section 195(1)(Tha) makes retaliation against a complainant an unfair labour practice.</p>
 <p><strong>Data:</strong> The Personal Data Protection Act, 2026 governs complaint files, requires notice at the point of collection and restricts transfer abroad; reports to a regional or group headquarters should be anonymised unless a lawful basis exists.</p>
 <p><strong>Coverage:</strong> Non-profit hospitals, clinics and care establishments, formerly excluded, are now within the Labour Act.</p>
 
-<h2>7. What comes next?</h2>
+<h2 class="accent">7. What comes next?</h2>
 <p>Bangladesh deposited its ratification of the ILO Violence and Harassment Convention, 2019 (No. 190) on 20 November 2025, and the Convention takes effect for Bangladesh twelve months after registration. A standalone law on sexual harassment at workplaces and educational institutions received final approval in draft in January 2026 but, so far as we are aware, has not been enacted. Employers who align with sections 332 and 332A now will need to adjust when it arrives.</p>
 
 <hr>

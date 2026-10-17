@@ -177,6 +177,11 @@
     color: #252a25;
   }
 
+  /* Green accent text (question headings, labels), as in the source PDF of documents that use it. */
+  .insight-doc .accent {
+    color: #079927;
+  }
+
   .insight-doc .credit {
     margin-top: 2rem;
     text-align: right;
