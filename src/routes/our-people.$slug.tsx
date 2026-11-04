@@ -250,7 +250,7 @@ function ProfileAccordion({
       <button
         type="button"
         onClick={onToggle}
-        className={`flex w-full items-center justify-between bg-secondary/50  py-3 text-left font-serif text-lg transition hover:bg-secondary ${
+        className={`flex w-full items-center justify-between bg-secondary/50 px-4 py-3 text-left font-serif text-lg transition hover:bg-secondary ${
           isOpen ? "text-brand" : "text-[#34A294]"
         }`}
       >
