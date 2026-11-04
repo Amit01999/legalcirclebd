@@ -88,6 +88,14 @@ function renderBioParagraph(paragraph: BioParagraph) {
   return paragraph.map((run, i) => renderRun(run, i));
 }
 
+function profileSectionItemKey(item: BioParagraph, index: number) {
+  const text =
+    typeof item === "string"
+      ? item
+      : item.map((run) => (typeof run === "string" ? run : run.text)).join("");
+  return `${text}-${index}`;
+}
+
 function PersonDetailPage() {
   const { person } = Route.useLoaderData();
   const [openSection, setOpenSection] = useState("Publications");
@@ -219,8 +227,8 @@ function StaticSection({ section }: { section: ProfileSection }) {
       </div>
       <div className="bg-secondary/40  py-4">
         <ul className="space-y-2 text-sm leading-7 text-muted-foreground">
-          {section.items.map((item) => (
-            <li key={item}>{item}</li>
+          {section.items.map((item, index) => (
+            <li key={profileSectionItemKey(item, index)}>{renderBioParagraph(item)}</li>
           ))}
         </ul>
       </div>
@@ -254,8 +262,8 @@ function ProfileAccordion({
       {isOpen && (
         <div className="bg-secondary/40 px-7 py-6">
           <ol className="list-decimal space-y-2 pl-5 text-sm leading-7 text-muted-foreground">
-            {section.items.map((item) => (
-              <li key={item}>{item}</li>
+            {section.items.map((item, index) => (
+              <li key={profileSectionItemKey(item, index)}>{renderBioParagraph(item)}</li>
             ))}
           </ol>
         </div>
