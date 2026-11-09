@@ -261,11 +261,28 @@ function ProfileAccordion({
       </button>
       {isOpen && (
         <div className="bg-secondary/40 px-7 py-6">
-          <ol className="list-decimal space-y-2 pl-5 text-sm leading-7 text-muted-foreground">
-            {section.items.map((item, index) => (
-              <li key={profileSectionItemKey(item, index)}>{renderBioParagraph(item)}</li>
-            ))}
-          </ol>
+          {section.groups ? (
+            <div className="space-y-5">
+              {section.groups.map((group) => (
+                <section key={group.title}>
+                  <h3 className="mb-2 font-serif text-base font-semibold text-[#34A294]">
+                    {group.title}
+                  </h3>
+                  <ol className="list-decimal space-y-2 pl-5 text-sm leading-7 text-muted-foreground">
+                    {group.items.map((item, index) => (
+                      <li key={profileSectionItemKey(item, index)}>{renderBioParagraph(item)}</li>
+                    ))}
+                  </ol>
+                </section>
+              ))}
+            </div>
+          ) : (
+            <ol className="list-decimal space-y-2 pl-5 text-sm leading-7 text-muted-foreground">
+              {section.items.map((item, index) => (
+                <li key={profileSectionItemKey(item, index)}>{renderBioParagraph(item)}</li>
+              ))}
+            </ol>
+          )}
         </div>
       )}
     </div>
